@@ -9,6 +9,12 @@
       "cache": false
     },
     "lint": {},
+    "typecheck": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
     "test": {}
   }
 }

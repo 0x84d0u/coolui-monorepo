@@ -11,10 +11,16 @@
       "require": "./dist/index.server.js"
     }
   },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -p tsconfig.build.json --watch --preserveWatchOutput",
+    "clean": "rm -rf dist .turbo tsconfig.build.tsbuildinfo",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
+  },
   "dependencies": {
     "@coolui/core": "workspace:*"
-  },
-  "scripts": {
-    "build": "tsc -p tsconfig.build.json"
   }
 }
