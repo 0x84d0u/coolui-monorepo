@@ -1,0 +1,18 @@
+{
+  "name": "coolui",
+  "private": true,
+  "version": "1.0.0",
+    "packageManager": "pnpm@9.10.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    
+    "build:core": "pnpm build --filter @coolui/core",
+    "build": "turbo run build",
+
+    "lint": "turbo run lint"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "typescript": "latest"
+  }
+}
