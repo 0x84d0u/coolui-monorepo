@@ -26,10 +26,10 @@
   "scripts": {
     "clean": "rm -rf dist .turbo tsconfig.tsbuildinfo",
     "typecheck": "tsc --noEmit",
-    "build:ts": "tsup --trace-deprecation",
+    "build:ts": "tsup",
     "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
     "build": "pnpm run clean && pnpm run build:css && pnpm run build:ts",
-    "dev:ts": "tsup --watch --trace-deprecation",
+    "dev:ts": "tsup --watch",
     "dev:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --watch",
     "dev": "concurrently \"pnpm run dev:ts\" \"pnpm run dev:css\""
   },

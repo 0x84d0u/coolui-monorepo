@@ -7,7 +7,7 @@ export default defineConfig([
         format: ['cjs', 'esm'],
         dts: true,
         sourcemap: true,
-        clean: true,
+        clean: false,
         external: ['react', 'react-dom'],
     },
     // Client entry (with 'use client' preserved)
