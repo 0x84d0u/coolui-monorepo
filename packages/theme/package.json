@@ -1,22 +1,31 @@
 {
   "name": "@coolui/theme",
   "version": "0.1.0",
-  "main": "dist/index.server.js",
-  "module": "dist/index.client.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.server.js",
+  "module": "./dist/index.server.mjs",
+  "types": "./dist/index.server.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.client.js",
+      "types": "./dist/index.server.d.ts",
+      "import": "./dist/index.server.mjs",
       "require": "./dist/index.server.js"
     },
-    "./styles.css": "./src/index.css"
+    "./client": {
+      "types": "./dist/index.client.d.ts",
+      "import": "./dist/index.client.mjs",
+      "require": "./dist/index.client.js"
+    },
+    "./styles.css": "./dist/styles.css"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "dev": "tsc -p tsconfig.build.json --watch --preserveWatchOutput",
     "clean": "rm -rf dist .turbo tsconfig.build.tsbuildinfo",
-    "typecheck": "tsc -p tsconfig.build.json --noEmit"
+    "typecheck": "tsc -p tsconfig.build.json --noEmit",
+    "build:ts": "tsc -p tsconfig.build.json",
+    "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
+    "build": "pnpm run clean && pnpm run build:ts && pnpm run build:css",
+    "dev:ts": "tsc -p tsconfig.build.json --watch --preserveWatchOutput",
+    "dev:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --watch",
+    "dev": "concurrently \"pnpm run dev:ts\" \"pnpm run dev:css\""
   },
   "peerDependencies": {
     "react": "^18 || ^19"
@@ -27,6 +36,7 @@
   "devDependencies": {
     "react": "^19.1.1",
     "@types/react": "^19",
-    "typescript": "latest"
+    "typescript": "latest",
+    "concurrently": "^8.2.0"
   }
 }

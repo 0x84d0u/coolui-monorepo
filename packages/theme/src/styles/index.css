@@ -1,12 +1,5 @@
 @import "tailwindcss";
 
-@import "./styles/default.theme.css";
-@import "./styles/eureka.theme.css";
-/* 
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
-  
-  transition: background-color 0.2s, color 0.2s;
-} */
+@import "./core.css";
+@import "./themes/default.css";
+@import "./themes/midnight.css";

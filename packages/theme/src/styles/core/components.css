@@ -1,0 +1,172 @@
+@layer components {
+  /* Theme Selector Components */
+  .theme-selector {
+    @apply w-full max-w-md p-6 rounded-lg shadow-lg border;
+    @apply bg-white dark:bg-gray-900;
+    @apply border-gray-200 dark:border-gray-700;
+  }
+  
+  .theme-selector-skeleton {
+    @apply w-full max-w-md p-6 rounded-lg bg-gray-100 dark:bg-gray-800;
+  }
+  
+  .theme-selector-loading {
+    @apply space-y-4 opacity-50;
+  }
+  
+  .theme-selector-title {
+    @apply text-xl font-semibold mb-4;
+    @apply text-gray-900 dark:text-gray-100;
+  }
+  
+  .theme-selector-section {
+    @apply mb-6 last:mb-0;
+  }
+  
+  .theme-selector-label {
+    @apply block text-sm font-medium mb-3 text-gray-700 dark:text-gray-300;
+  }
+  
+  .theme-grid {
+    @apply grid grid-cols-2 gap-3;
+  }
+  
+  .theme-option {
+    @apply p-4 rounded-lg border-2 text-left transition-all;
+    @apply border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600;
+  }
+  
+  .theme-option-active {
+    @apply border-blue-500 bg-blue-50 dark:bg-blue-900/20;
+  }
+  
+  .theme-option-label {
+    @apply font-semibold text-gray-900 dark:text-gray-100;
+  }
+  
+  .theme-option-description {
+    @apply text-xs text-gray-500 dark:text-gray-400 mt-1;
+  }
+  
+  .mode-grid {
+    @apply flex gap-3;
+  }
+  
+  .mode-option {
+    @apply flex-1 p-4 rounded-lg border-2 transition-all text-center;
+    @apply border-gray-200 dark:border-gray-700 hover:border-gray-300;
+  }
+  
+  .mode-option-active {
+    @apply border-blue-500 bg-blue-50 dark:bg-blue-900/20;
+  }
+  
+  .mode-icon {
+    @apply text-2xl block;
+  }
+  
+  .mode-label {
+    @apply font-semibold text-gray-900 dark:text-gray-100 mt-1;
+  }
+  
+  .theme-toggle-btn {
+    @apply w-full mt-4 px-4 py-2 rounded-lg transition-colors font-medium;
+    @apply bg-blue-500 hover:bg-blue-600 text-white;
+  }
+  
+  .theme-current {
+    @apply mt-4 p-3 rounded text-sm bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400;
+  }
+  
+  /* Theme Preview Components */
+  .theme-preview-container {
+    @apply w-full max-w-md space-y-4;
+  }
+  
+  .theme-preview-skeleton {
+    @apply w-full max-w-md p-6 rounded-lg bg-gray-100 opacity-50;
+  }
+  
+  .theme-preview-card {
+    @apply p-6 rounded-lg shadow-lg border transition-colors duration-200;
+    @apply bg-white dark:bg-gray-900;
+    @apply border-gray-200 dark:border-gray-700;
+  }
+  
+  .theme-preview-title {
+    @apply text-2xl font-bold mb-4;
+    @apply text-gray-900 dark:text-gray-100;
+  }
+  
+  .theme-preview-text {
+    @apply mb-4 text-gray-700 dark:text-gray-300;
+  }
+  
+  .theme-preview-swatches {
+    @apply grid grid-cols-3 gap-3 mb-4;
+  }
+  
+  .swatch {
+    @apply h-16 rounded;
+  }
+  
+  .swatch-blue {
+    @apply bg-blue-500 dark:bg-blue-600;
+  }
+  
+  .swatch-green {
+    @apply bg-green-500 dark:bg-green-600;
+  }
+  
+  .swatch-purple {
+    @apply bg-purple-500 dark:bg-purple-600;
+  }
+  
+  .theme-preview-buttons {
+    @apply flex gap-2 mb-4;
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 rounded transition-colors bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 rounded transition-colors bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-gray-100;
+  }
+  
+  .theme-preview-info {
+    @apply p-4 rounded border bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800;
+  }
+  
+  .info-icon {
+    @apply font-semibold mb-1 text-blue-900 dark:text-blue-100;
+  }
+  
+  .info-text {
+    @apply text-sm text-blue-700 dark:text-blue-300;
+  }
+  
+  .theme-info-card {
+    @apply p-4 rounded-lg border bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700;
+  }
+  
+  .theme-info-grid {
+    @apply text-sm space-y-2;
+  }
+  
+  .theme-info-row {
+    @apply flex justify-between;
+  }
+  
+  .theme-info-key {
+    @apply font-medium text-gray-700 dark:text-gray-300;
+  }
+  
+  .theme-info-value {
+    @apply font-semibold capitalize text-gray-900 dark:text-gray-100;
+  }
+  
+  .theme-info-code {
+    @apply text-xs px-2 py-1 rounded bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100;
+  }
+}

@@ -12,6 +12,8 @@
     "clean:dist": "turbo run clean"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.1.16",
+    "tailwindcss": "^4",
     "turbo": "latest",
     "typescript": "latest"
   }
