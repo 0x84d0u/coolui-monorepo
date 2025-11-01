@@ -3,7 +3,7 @@
   "description": "Flexible theme system for Next.js and React",
   "version": "0.1.0",
   "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
@@ -21,15 +21,17 @@
       "import": "./dist/server.mjs",
       "require": "./dist/server.js"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": {
+      "default": "./dist/styles.css"
+    }
   },
   "scripts": {
-    "clean": "rm -rf dist .turbo tsconfig.tsbuildinfo",
+    "clean": "rm -rf dist .turbo",
     "typecheck": "tsc --noEmit",
-    "build:ts": "tsup --trace-deprecation",
+    "build:ts": "tsup",
     "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
     "build": "pnpm run clean && pnpm run build:css && pnpm run build:ts",
-    "dev:ts": "tsup --watch --trace-deprecation",
+    "dev:ts": "tsup --watch",
     "dev:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --watch",
     "dev": "concurrently \"pnpm run dev:ts\" \"pnpm run dev:css\""
   },
@@ -43,8 +45,7 @@
   "devDependencies": {
     "@types/react": "^19",
     "concurrently": "^8.2.0",
-    "react": "^19.1.1",
-    "tsup": "7.2.0",
+    "react": "^19.2.0",
     "typescript": "latest"
   }
 }

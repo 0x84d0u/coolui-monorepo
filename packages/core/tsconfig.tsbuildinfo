@@ -1,1 +1,0 @@
-{"root":["./src/index.client.ts","./src/index.server.ts","./src/providers/providers.tsx","./src/utils/cn.ts","./src/utils/cva.ts"],"errors":true,"version":"5.9.3"}

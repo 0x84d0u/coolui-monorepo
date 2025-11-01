@@ -1,27 +1,15 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig([
-  // Main entry
+  // Client-side exports (for React components)
   {
-    entry: ['src/index.ts'],
+    entry: ['src/index.client.ts'],
     format: ['cjs', 'esm'],
     dts: true,
     sourcemap: true,
     clean: true,
     external: ['react', 'react-dom'],
-    outExtension({ format }) {
-      return {
-        js: format === 'cjs' ? '.js' : '.mjs',
-      };
-    },
-  },
-  // Client entry (with 'use client' preserved)
-  {
-    entry: ['src/client.ts'],
-    format: ['cjs', 'esm'],
-    dts: true,
-    sourcemap: true,
-    external: ['react', 'react-dom'],
+    outDir: 'dist',
     banner: {
       js: "'use client';",
     },
@@ -31,13 +19,14 @@ export default defineConfig([
       };
     },
   },
-  // Server entry (no 'use client')
+  // Server-side exports (utilities only, no React)
   {
-    entry: ['src/server.ts'],
+    entry: ['src/index.server.ts'],
     format: ['cjs', 'esm'],
     dts: true,
     sourcemap: true,
     external: ['react', 'react-dom'],
+    outDir: 'dist',
     outExtension({ format }) {
       return {
         js: format === 'cjs' ? '.js' : '.mjs',

@@ -13,11 +13,10 @@
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.16",
+    "@types/node": "^24.9.2",
     "tailwindcss": "^4",
+    "tsup": "^8.5.0",
     "turbo": "latest",
     "typescript": "latest"
-  },
-  "dependencies": {
-    "tsup": "^8.5.0"
   }
 }
