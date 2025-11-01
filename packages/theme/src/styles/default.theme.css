@@ -1,0 +1,13 @@
+@theme default {
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-gray-950);
+  --color-primary: var(--color-blue-600);
+  --color-card: var(--color-white);
+}
+
+@theme default (dark) {
+  --color-background: var(--color-gray-950);
+  --color-foreground: var(--color-white);
+  --color-primary: var(--color-blue-500);
+  --color-card: var(--color-gray-900);
+}

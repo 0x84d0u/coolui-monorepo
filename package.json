@@ -2,14 +2,14 @@
   "name": "coolui",
   "private": true,
   "version": "1.0.0",
-    "packageManager": "pnpm@9.10.0",
+  "packageManager": "pnpm@9.10.0",
   "scripts": {
-    "dev": "turbo run dev",
-    
-    "build:core": "pnpm build --filter @coolui/core",
     "build": "turbo run build",
-
-    "lint": "turbo run lint"
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean && pnpm -r exec rm -rf node_modules && rm -rf node_modules",
+    "clean:dist": "turbo run clean"
   },
   "devDependencies": {
     "turbo": "latest",

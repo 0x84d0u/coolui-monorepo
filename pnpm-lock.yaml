@@ -17,6 +17,12 @@ importers:
 
   apps/nextjs-demo:
     dependencies:
+      '@coolui/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@coolui/theme':
+        specifier: workspace:*
+        version: link:../../packages/theme
       next:
         specifier: 16.0.1
         version: 16.0.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -27,12 +33,6 @@ importers:
         specifier: 19.2.0
         version: 19.2.0(react@19.2.0)
     devDependencies:
-      '@coolui/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@coolui/theme':
-        specifier: workspace:*
-        version: link:../../packages/theme
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.1.16
@@ -55,11 +55,17 @@ importers:
         specifier: ^4
         version: 4.1.16
       typescript:
-        specifier: ^5
+        specifier: latest
         version: 5.9.3
 
   apps/vite-demo:
     dependencies:
+      '@coolui/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@coolui/theme':
+        specifier: workspace:*
+        version: link:../../packages/theme
       react:
         specifier: ^19.1.1
         version: 19.2.0
@@ -67,12 +73,6 @@ importers:
         specifier: ^19.1.1
         version: 19.2.0(react@19.2.0)
     devDependencies:
-      '@coolui/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@coolui/theme':
-        specifier: workspace:*
-        version: link:../../packages/theme
       '@eslint/js':
         specifier: ^9.36.0
         version: 9.39.0
@@ -142,9 +142,16 @@ importers:
       '@coolui/core':
         specifier: workspace:*
         version: link:../core
+    devDependencies:
+      '@types/react':
+        specifier: ^19
+        version: 19.2.2
       react:
-        specifier: ^18 || ^19
+        specifier: ^19.1.1
         version: 19.2.0
+      typescript:
+        specifier: latest
+        version: 5.9.3
 
 packages:
 
