@@ -397,7 +397,7 @@ Each theme should define these CSS variables:
 
 ## 📄 License
 
-MIT © Naoufal Badou
+MIT © [Your Name]
 
 ## 🙏 Credits
 

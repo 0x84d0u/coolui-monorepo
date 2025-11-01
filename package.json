@@ -16,5 +16,8 @@
     "tailwindcss": "^4",
     "turbo": "latest",
     "typescript": "latest"
+  },
+  "dependencies": {
+    "tsup": "^8.5.0"
   }
 }

@@ -1,42 +1,50 @@
 {
   "name": "@coolui/theme",
+  "description": "Flexible theme system for Next.js and React",
   "version": "0.1.0",
-  "main": "./dist/index.server.js",
-  "module": "./dist/index.server.mjs",
-  "types": "./dist/index.server.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.server.d.ts",
-      "import": "./dist/index.server.mjs",
-      "require": "./dist/index.server.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     },
     "./client": {
-      "types": "./dist/index.client.d.ts",
-      "import": "./dist/index.client.mjs",
-      "require": "./dist/index.client.js"
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.mjs",
+      "require": "./dist/client.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.mjs",
+      "require": "./dist/server.js"
     },
     "./styles.css": "./dist/styles.css"
   },
   "scripts": {
-    "clean": "rm -rf dist .turbo tsconfig.build.tsbuildinfo",
-    "typecheck": "tsc -p tsconfig.build.json --noEmit",
-    "build:ts": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist .turbo tsconfig.tsbuildinfo",
+    "typecheck": "tsc --noEmit",
+    "build:ts": "tsup --trace-deprecation",
     "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
-    "build": "pnpm run clean && pnpm run build:ts && pnpm run build:css",
-    "dev:ts": "tsc -p tsconfig.build.json --watch --preserveWatchOutput",
+    "build": "pnpm run clean && pnpm run build:css && pnpm run build:ts",
+    "dev:ts": "tsup --watch --trace-deprecation",
     "dev:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --watch",
     "dev": "concurrently \"pnpm run dev:ts\" \"pnpm run dev:css\""
   },
   "peerDependencies": {
-    "react": "^18 || ^19"
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
   },
   "dependencies": {
     "@coolui/core": "workspace:*"
   },
   "devDependencies": {
-    "react": "^19.1.1",
     "@types/react": "^19",
-    "typescript": "latest",
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0",
+    "react": "^19.1.1",
+    "tsup": "7.2.0",
+    "typescript": "latest"
   }
 }

@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
-@import "./core.css";
-@import "./themes/default.css";
-@import "./themes/midnight.css";
+@import 'tailwindcss';
+@import "./core/index.css";
+@import "./themes/index.css";

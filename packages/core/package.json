@@ -12,8 +12,8 @@
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "dev": "tsc -p tsconfig.build.json --watch --preserveWatchOutput",
+    "build": "tsc --build",
+    "dev": "tsc --build --watch --preserveWatchOutput",
     "clean": "rm -rf dist .turbo tsconfig.build.tsbuildinfo",
     "typecheck": "tsc -p tsconfig.build.json --noEmit"
   },

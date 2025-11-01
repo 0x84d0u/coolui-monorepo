@@ -2,65 +2,39 @@
 @custom-variant theme-midnight (&:where([data-theme="midnight"], [data-theme="midnight"] *));
 @custom-variant midnight-dark (&:where([data-theme="midnight"].dark, [data-theme="midnight"].dark *));
 
-/* Theme tokens */
-@theme {
-  --color-midnight-bg-light: oklch(0.98 0.01 240);
-  --color-midnight-bg-dark: oklch(0.15 0.02 240);
-  --color-midnight-surface-light: oklch(0.95 0.01 240);
-  --color-midnight-surface-dark: oklch(0.20 0.02 240);
-  --color-midnight-accent-light: oklch(0.60 0.25 280);
-  --color-midnight-accent-dark: oklch(0.70 0.20 280);
-  --color-midnight-text-light: oklch(0.20 0.02 240);
-  --color-midnight-text-dark: oklch(0.95 0.01 240);
-  --color-midnight-text-muted-light: oklch(0.50 0.01 240);
-  --color-midnight-text-muted-dark: oklch(0.70 0.01 240);
-  --color-midnight-border-light: oklch(0.85 0.01 240);
-  --color-midnight-border-dark: oklch(0.30 0.02 240);
-}
-
-/* CSS Variables */
+/* Override theme variables */
 @layer base {
   [data-theme="midnight"] {
-    --page-bg: var(--color-midnight-bg-light);
-    --page-text: var(--color-midnight-text-light);
-    --page-text-muted: var(--color-midnight-text-muted-light);
-    --page-border: var(--color-midnight-border-light);
+    /* Background colors */
+    --color-bg: oklch(0.98 0.01 240);
+    --color-surface: oklch(0.95 0.01 240);
+    
+    /* Text colors */
+    --color-text: oklch(0.20 0.02 240);
+    --color-text-muted: oklch(0.50 0.01 240);
+    
+    /* Border colors */
+    --color-border: oklch(0.85 0.01 240);
+    
+    /* Accent colors */
+    --color-accent: oklch(0.60 0.25 280);
+    --color-accent-hover: oklch(0.55 0.25 280);
   }
   
   [data-theme="midnight"].dark {
-    --page-bg: var(--color-midnight-bg-dark);
-    --page-text: var(--color-midnight-text-dark);
-    --page-text-muted: var(--color-midnight-text-muted-dark);
-    --page-border: var(--color-midnight-border-dark);
-  }
-}
-
-/* Optional: Custom component overrides for midnight theme */
-@layer components {
-  .theme-selector {
-    @apply theme-midnight:bg-[--color-midnight-surface-light];
-    @apply midnight-dark:bg-[--color-midnight-surface-dark];
-    @apply theme-midnight:border-[--color-midnight-border-light];
-    @apply midnight-dark:border-[--color-midnight-border-dark];
-  }
-  
-  .theme-selector-title {
-    @apply theme-midnight:text-[--color-midnight-text-light];
-    @apply midnight-dark:text-[--color-midnight-text-dark];
-  }
-  
-  .theme-preview-card {
-    @apply theme-midnight:bg-[--color-midnight-surface-light];
-    @apply midnight-dark:bg-[--color-midnight-surface-dark];
-  }
-  
-  .theme-preview-title {
-    @apply theme-midnight:text-[--color-midnight-text-light];
-    @apply midnight-dark:text-[--color-midnight-text-dark];
-  }
-  
-  .theme-preview-text {
-    @apply theme-midnight:text-[--color-midnight-text-muted-light];
-    @apply midnight-dark:text-[--color-midnight-text-muted-dark];
+    /* Background colors */
+    --color-bg: oklch(0.15 0.02 240);
+    --color-surface: oklch(0.20 0.02 240);
+    
+    /* Text colors */
+    --color-text: oklch(0.95 0.01 240);
+    --color-text-muted: oklch(0.70 0.01 240);
+    
+    /* Border colors */
+    --color-border: oklch(0.30 0.02 240);
+    
+    /* Accent colors */
+    --color-accent: oklch(0.70 0.20 280);
+    --color-accent-hover: oklch(0.75 0.20 280);
   }
 }

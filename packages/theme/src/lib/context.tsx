@@ -1,15 +1,13 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { THEME_STORAGE_KEY, MODE_STORAGE_KEY } from './theme-script';
-import { DEFAULT_THEMES, type ThemeConfig } from './theme-config';
-
-type ThemeMode = 'light' | 'dark';
+import { DEFAULT_THEMES, MODE_STORAGE_KEY, THEME_STORAGE_KEY } from './constants';
+import type { Theme, ThemeMode } from './types';
 
 interface ThemeContextType {
   themeName: string;
   themeMode: ThemeMode;
-  themes: ThemeConfig[];
+  themes: Theme[];
   setThemeName: (theme: string) => void;
   setThemeMode: (mode: ThemeMode) => void;
   toggleMode: () => void;
@@ -20,7 +18,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 interface ThemeProviderProps {
   children: React.ReactNode;
-  themes?: ThemeConfig[];
+  themes?: Theme[];
   defaultTheme?: string;
   defaultMode?: ThemeMode;
   themeStorageKey?: string;
@@ -39,7 +37,6 @@ export function ThemeProvider({
   const [themeMode, setThemeModeState] = useState<ThemeMode>(defaultMode);
   const [mounted, setMounted] = useState(false);
 
-  // Validate theme exists
   const isValidTheme = (theme: string) => {
     return themes.some(t => t.value === theme);
   };
@@ -50,12 +47,10 @@ export function ThemeProvider({
     const savedTheme = localStorage.getItem(themeStorageKey);
     const savedMode = localStorage.getItem(modeStorageKey) as ThemeMode;
     
-    // Load saved theme if valid
     if (savedTheme && isValidTheme(savedTheme)) {
       setThemeNameState(savedTheme);
     }
     
-    // Load saved mode or detect system preference
     if (savedMode && (savedMode === 'light' || savedMode === 'dark')) {
       setThemeModeState(savedMode);
     } else {
@@ -71,21 +66,18 @@ export function ThemeProvider({
 
     const root = document.documentElement;
     
-    // Apply theme name via data attribute
     if (themeName === 'default') {
       root.removeAttribute('data-theme');
     } else {
       root.setAttribute('data-theme', themeName);
     }
     
-    // Apply theme mode via class
     if (themeMode === 'dark') {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
     }
     
-    // Persist to localStorage
     localStorage.setItem(themeStorageKey, themeName);
     localStorage.setItem(modeStorageKey, themeMode);
   }, [themeName, themeMode, mounted, themeStorageKey, modeStorageKey]);

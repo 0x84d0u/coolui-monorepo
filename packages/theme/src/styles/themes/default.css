@@ -1,34 +1,39 @@
 /* Dark mode variant */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Theme tokens */
-@theme {
-  --color-primary-50: oklch(0.98 0.02 260);
-  --color-primary-100: oklch(0.95 0.05 260);
-  --color-primary-200: oklch(0.90 0.08 260);
-  --color-primary-300: oklch(0.82 0.12 260);
-  --color-primary-400: oklch(0.70 0.16 260);
-  --color-primary-500: oklch(0.55 0.20 260);
-  --color-primary-600: oklch(0.45 0.18 260);
-  --color-primary-700: oklch(0.35 0.16 260);
-  --color-primary-800: oklch(0.28 0.14 260);
-  --color-primary-900: oklch(0.25 0.15 260);
-  --color-primary-950: oklch(0.18 0.10 260);
-}
-
-/* CSS Variables */
+/* Theme variables - these get overridden by other themes */
 @layer base {
   :root {
-    --page-bg: var(--color-white);
-    --page-text: var(--color-gray-900);
-    --page-text-muted: var(--color-gray-600);
-    --page-border: var(--color-gray-200);
+    /* Background colors */
+    --color-bg: var(--color-white);
+    --color-surface: var(--color-gray-50);
+    
+    /* Text colors */
+    --color-text: var(--color-gray-900);
+    --color-text-muted: var(--color-gray-600);
+    
+    /* Border colors */
+    --color-border: var(--color-gray-200);
+    
+    /* Accent colors */
+    --color-accent: var(--color-blue-500);
+    --color-accent-hover: var(--color-blue-600);
   }
   
   .dark {
-    --page-bg: var(--color-gray-950);
-    --page-text: var(--color-gray-50);
-    --page-text-muted: var(--color-gray-400);
-    --page-border: var(--color-gray-800);
+    /* Background colors */
+    --color-bg: var(--color-gray-950);
+    --color-surface: var(--color-gray-900);
+    
+    /* Text colors */
+    --color-text: var(--color-gray-50);
+    --color-text-muted: var(--color-gray-400);
+    
+    /* Border colors */
+    --color-border: var(--color-gray-800);
+    
+    /* Accent colors */
+    --color-accent: var(--color-blue-600);
+    --color-accent-hover: var(--color-blue-700);
   }
 }

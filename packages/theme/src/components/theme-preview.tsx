@@ -1,7 +1,8 @@
+
 'use client';
 
 import React from 'react';
-import { useTheme } from '../lib/theme-context';
+import { useTheme } from '../client';
 
 export function ThemePreview() {
   const { themeName, themeMode, mounted } = useTheme();
