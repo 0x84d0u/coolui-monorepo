@@ -1,79 +1,12 @@
-/* @config '../../tailwind.config.ts'; */
-@import "./theme.default.css";
-@import "./theme.midnight.css";
-@import 'tailwindcss';
-
-@theme {
-    /* Spacing */
-    --spacing: 0.25rem;
-
-    /* Typography */
-    --font-sans: system-ui, -apple-system, sans-serif;
-    --font-mono: 'Courier New', monospace;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-
-    /* Border Radius */
-    --radius-sm: 0.125rem;
-    --radius: 0.25rem;
-    --radius-md: 0.375rem;
-    --radius-lg: 0.5rem;
-    --radius-xl: 0.75rem;
-    --radius-2xl: 1rem;
-    --radius-3xl: 1.5rem;
-
-    /* Transitions */
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-
-    /* 
-      Theme color variables - these act as "pointers" that reference
-      the actual color values defined in your theme files.
-      The theme files (default, midnight) will set the actual values.
-    */
-    --color-bg: var(--color-bg);
-    --color-surface: var(--color-surface);
-    --color-text: var(--color-text);
-    --color-text-muted: var(--color-text-muted);
-    --color-border: var(--color-border);
-    --color-accent: var(--color-accent);
-    --color-accent-hover: var(--color-accent-hover);
+body {
+  background-color: var(--color-primary);
+  /* color: var(--color-secondary); */
+  /* font-family: var(--font-body); */
+  /* transition: background-color var(--transition-base), color var(--transition-base); */
 }
 
-@layer base {
-    * {
-        /* 
-          Note: Tailwind v4 doesn't have a default 'border' color utility like v3 did.
-          If you want all elements to have a default border color, use the arbitrary syntax:
-        */
-        @apply border-border;
-    }
-
-    body {
-        /* 
-          Use arbitrary value syntax to reference your theme variables.
-          The square brackets tell Tailwind you're providing a custom value.
-        */
-        @apply bg-[var(--color-bg)] text-[var(--color-text)] font-sans;
-        @apply transition-colors duration-200;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        @apply font-semibold text-[var(--color-text)];
-    }
-
-    p {
-        @apply text-[var(--color-text-muted)];
-    }
+* {
+  /* transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: var(--transition-base);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
 }

@@ -1,6 +1,5 @@
 {
-  "name": "@coolui/theme",
-  "description": "Flexible theme system for Next.js and React",
+  "name": "@coolui/typography",
   "version": "0.1.0",
   "main": "./dist/server.js",
   "module": "./dist/server.mjs",
@@ -15,31 +14,24 @@
       "types": "./dist/client.d.ts",
       "import": "./dist/client.mjs",
       "require": "./dist/client.js"
-    },
-    "./styles.css": {
-      "default": "./dist/styles.css"
-    },
-    "./preset.css": "./src/styles/preset.css",
-    "./theme-dafault.css": "./src/styles/theme-default.css",
-    "./theme-minimalist.css": "./src/styles/theme-minimalist.css",
-    "./globals.css": "./src/styles/globals.css"
+    }
   },
   "scripts": {
     "clean": "rm -rf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:js": "tsup",
     "build:types": "tsc --project tsconfig.build.json",
-    "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
-    "build": "pnpm run clean && pnpm run build:css && pnpm run build:js && pnpm run build:types",
+    "build": "pnpm run clean  && pnpm run build:js && pnpm run build:types",
     "dev:js": "tsup --watch",
-    "dev:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --watch",
-    "dev": "concurrently \"pnpm run dev:js\" \"pnpm run dev:css\""
+    "dev": "pnpm run dev:js"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@coolui/core": "workspace:*"
+  },
   "devDependencies": {
     "@types/react": "^19",
     "concurrently": "^8.2.0",

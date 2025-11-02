@@ -69,3 +69,31 @@ export function ThemePreview() {
     </div>
   );
 }
+
+
+// A card component using the semantic tokens
+export function Card({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="bg-surface text-surface-fg border border-border rounded-lg p-6 hover:bg-surface-hover transition-colors duration-base">
+      {children}
+    </div>
+  )
+}
+
+// A primary button
+export function Button({ children }: { children: React.ReactNode }) {
+  return (
+    <button className="bg-accent text-accent-fg hover:bg-accent-hover px-4 py-2 rounded-md font-medium transition-colors duration-fast">
+      {children}
+    </button>
+  )
+}
+
+// A success alert
+export function SuccessAlert({ message }: { message: string }) {
+  return (
+    <div className="bg-success text-success-fg border border-success-border rounded-md p-4">
+      {message}
+    </div>
+  )
+}

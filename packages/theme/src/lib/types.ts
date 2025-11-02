@@ -1,4 +1,4 @@
-export type ThemeName = 'default' | 'midnight' | (string & {});
+export type ThemeName = 'default' | 'modern' | 'minimalist' | 'retro' | (string & {});
 
 export interface Theme {
   value: ThemeName;

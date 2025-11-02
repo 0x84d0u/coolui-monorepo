@@ -1,6 +1,7 @@
+// import "@coolui/theme/styles.css";
+import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import { getThemeScript } from "@coolui/theme";
 import { ThemePreview, ThemeProvider } from "@coolui/theme/client";
 
@@ -30,7 +31,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: getThemeScript() }}></script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-svh flex flex-col items-center justify-center`}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased h-svh flex flex-col items-center justify-center`}
       >
         <ThemeProvider>
           {children}
