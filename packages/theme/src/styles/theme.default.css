@@ -1,3 +1,4 @@
+
 /* Dark mode variant */
 @custom-variant dark (&:where(.dark, .dark *));
 

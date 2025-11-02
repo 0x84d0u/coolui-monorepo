@@ -1,3 +1,4 @@
+
 /* Theme variants */
 @custom-variant theme-midnight (&:where([data-theme="midnight"], [data-theme="midnight"] *));
 @custom-variant midnight-dark (&:where([data-theme="midnight"].dark, [data-theme="midnight"].dark *));

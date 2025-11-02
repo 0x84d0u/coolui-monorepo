@@ -2,19 +2,19 @@
   "name": "@coolui/theme",
   "description": "Flexible theme system for Next.js and React",
   "version": "0.1.0",
-  "main": "./dist/export/server.js",
-  "module": "./dist/export/server.mjs",
-  "types": "./dist/export/server.d.ts",
+  "main": "./dist/server.js",
+  "module": "./dist/server.mjs",
+  "types": "./dist/server.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/export/server.d.ts",
-      "import": "./dist/export/server.mjs",
-      "require": "./dist/export/server.js"
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.mjs",
+      "require": "./dist/server.js"
     },
     "./client": {
-      "types": "./dist/export/client.d.ts",
-      "import": "./dist/export/client.mjs",
-      "require": "./dist/export/client.js"
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.mjs",
+      "require": "./dist/client.js"
     },
     "./styles.css": {
       "default": "./dist/styles.css"
