@@ -1,7 +1,6 @@
 {
   "files": [],
   "references": [
-    { "path": "./packages/core" },
     { "path": "./packages/theme" },
     { "path": "./apps/vite-demo" },
     { "path": "./apps/nextjs-demo" }

@@ -1,28 +1,29 @@
 {
   "compilerOptions": {
-    /* === Core Output Settings === */
+    /* Core compilation settings */
     "target": "ESNext",
     "module": "ESNext",
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
+    "lib": ["DOM", "ESNext"],
     "moduleResolution": "Bundler",
-    "outDir": "dist",
-    /* === React + Next.js Compatibility === */
+    
+    /* React compatibility */
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    
+    /* Type safety */
+    "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    /* === Type Safety & Declarations === */
-    "strict": true,
+    
+    /* Declaration generation defaults */
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     
-    /* === Next.js Optimization === */
-    "isolatedModules": true,
-    "noEmit": true
+    /* Default output directory - packages can override */
+    "outDir": "dist"
+    
+    /* Note: noEmit is NOT set here - let packages decide */
   }
 }

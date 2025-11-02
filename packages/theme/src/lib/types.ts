@@ -1,5 +1,7 @@
+export type ThemeName = 'default' | 'midnight' | (string & {});
+
 export interface Theme {
-  value: string;
+  value: ThemeName;
   label: string;
   description?: string;
 }
