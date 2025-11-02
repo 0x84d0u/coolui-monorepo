@@ -2,7 +2,5 @@
   "files": [],
   "references": [
     { "path": "./packages/theme" },
-    { "path": "./apps/vite-demo" },
-    { "path": "./apps/nextjs-demo" }
   ]
 }
