@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useTheme } from '../client';
+import { useTheme } from '../lib/context';
 
 export function ThemeSelector() {
   const { themeName, themeMode, themes, setThemeName, setThemeMode, toggleMode, mounted } = useTheme();

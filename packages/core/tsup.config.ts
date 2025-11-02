@@ -5,10 +5,16 @@ export default defineConfig([
   {
     entry: ['src/index.client.ts'],
     format: ['cjs', 'esm'],
-    dts: true,
+    dts: false,
     sourcemap: true,
     clean: true,
-    external: ['react', 'react-dom'],
+    external: [
+      'react',
+      'react-dom',
+      'class-variance-authority',
+      'clsx',
+      'tailwind-merge'
+    ],
     outDir: 'dist',
     banner: {
       js: "'use client';",
@@ -23,9 +29,15 @@ export default defineConfig([
   {
     entry: ['src/index.server.ts'],
     format: ['cjs', 'esm'],
-    dts: true,
+    dts: false,
     sourcemap: true,
-    external: ['react', 'react-dom'],
+    external: [
+      'react',
+      'react-dom',
+      'class-variance-authority',
+      'clsx',
+      'tailwind-merge'
+    ],
     outDir: 'dist',
     outExtension({ format }) {
       return {

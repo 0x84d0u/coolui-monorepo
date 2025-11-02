@@ -17,7 +17,7 @@
     }
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && tsc --project tsconfig.build.json",
     "dev": "tsup --watch",
     "clean": "rm -rf dist .turbo",
     "typecheck": "tsc --noEmit"
