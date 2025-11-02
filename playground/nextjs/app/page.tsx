@@ -1,8 +1,9 @@
 import { Button, Card, SuccessAlert, ThemePreview, ThemeSelector } from "@coolui/theme/client";
+import { cn } from "@coolui/core";
 
 export default function Page() {
   return <>
-    <div> Hello </div>
+    <div className={cn("text-amber-500")}> Hello </div>
 
     <ThemeSelector />
 

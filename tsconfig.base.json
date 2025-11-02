@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "composite": true,
+
     /* Core compilation settings */
     "target": "ESNext",
     "module": "ESNext",

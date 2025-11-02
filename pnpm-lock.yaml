@@ -71,30 +71,11 @@ importers:
         specifier: latest
         version: 5.9.3
 
-  packages/typography:
+  playground/nextjs:
     dependencies:
       '@coolui/core':
         specifier: workspace:*
-        version: 'link:'
-      react-dom:
-        specifier: ^18 || ^19
-        version: 19.2.0(react@19.2.0)
-    devDependencies:
-      '@types/react':
-        specifier: ^19
-        version: 19.2.2
-      concurrently:
-        specifier: ^8.2.0
-        version: 8.2.2
-      react:
-        specifier: ^19.2.0
-        version: 19.2.0
-      typescript:
-        specifier: latest
-        version: 5.9.3
-
-  playground/nextjs:
-    dependencies:
+        version: link:../../packages/core
       '@coolui/theme':
         specifier: workspace:*
         version: link:../../packages/theme
