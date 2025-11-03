@@ -30,6 +30,7 @@
       "types": "./dist/client.d.ts",
       "import": "./dist/client.js"
     },
+    "./styles.css": "./source/styles/index.css",
     "./package.json": "./package.json"
   },
   "files": [

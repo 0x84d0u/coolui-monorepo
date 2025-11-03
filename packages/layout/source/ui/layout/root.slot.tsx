@@ -15,7 +15,7 @@ export const Slot = ({
     const Comp: React.ElementType = asBody ? 'body' : 'div';
     return <Comp
         className={cn(
-            "relative flex min-h-screen h-full",
+            "relative flex min-h-screen h-full bg-red-500",
             className
         )}
         {...props}

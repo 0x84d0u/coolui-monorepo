@@ -36,11 +36,11 @@ export default function NextRootLayout({
         className={`${geistSans.variable} ${geistMono.variable} `}
       >
         <ThemeProvider>
-          <RootLayoutProvider>
-            <RootLayout>
+          {/* <RootLayoutProvider> */}
+            {/* <RootLayout> */}
               {children}
-            </RootLayout>
-          </RootLayoutProvider>
+            {/* </RootLayout> */}
+          {/* </RootLayoutProvider> */}
         </ThemeProvider>
       </body>
     </html>

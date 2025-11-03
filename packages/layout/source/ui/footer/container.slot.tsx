@@ -1,4 +1,4 @@
-import { Container, ContainerProps } from "@/server"
+import { Container, ContainerProps } from "@/components/Container/Container"
 import { cn } from "@coolui/core"
 
 export type Props = {

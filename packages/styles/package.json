@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "type": "module",
   "exports": {
-    "./index.css": "./dist/index.css"
+    "./index.css": "./dist/index.css",
+    "./preset.css": "./source/index.css"
   },
   "files": [
     "dist"

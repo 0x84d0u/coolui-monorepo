@@ -1,100 +1,73 @@
 'use client';
+ import '@coolui/styles/index.css';
 
-import React from 'react';
-import { useTheme } from '@/hooks/useTheme';
-
+import { useTheme } from '@/hooks/useTheme'
 
 export function ThemePreview() {
-  const { themeName, themeMode, mounted } = useTheme();
+  const { themeName, themeMode, mounted } = useTheme()
 
   if (!mounted) {
     return (
-      <div className="theme-preview-skeleton">
-        <div>Loading preview...</div>
+      <div className="flex items-center justify-center h-32 text-muted">
+        Loading preview...
       </div>
-    );
+    )
   }
 
   return (
-    <div className="theme-preview-container">
-      <div className="theme-preview-card">
-        <h3 className="theme-preview-title">Theme Preview</h3>
-        
-        <p className="theme-preview-text">
+    <div className="space-y-8 p-6 bg-body text-typo-body">
+      {/* Preview Card */}
+      <div className="bg-surface border border-subtle rounded-xl p-6 shadow-sm space-y-4">
+        <h3 className="text-lg font-semibold text-typo-heading">Theme Preview</h3>
+
+        <p className="text-sm text-typo-muted">
           This card demonstrates how your theme looks with different text and background colors.
         </p>
 
-        <div className="theme-preview-swatches">
-          <div className="swatch swatch-blue"></div>
-          <div className="swatch swatch-green"></div>
-          <div className="swatch swatch-purple"></div>
+        <div className="flex gap-3">
+          <div className="size-8 rounded-full bg-blue-500" />
+          <div className="size-8 rounded-full bg-green-500" />
+          <div className="size-8 rounded-full bg-purple-500" />
         </div>
 
-        <div className="theme-preview-buttons">
-          <button className="btn-primary">Primary</button>
-          <button className="btn-secondary">Secondary</button>
+        <div className="flex gap-3">
+          <button className="bg-accent text-white px-4 py-2 rounded-md font-medium hover:opacity-90 transition">
+            Primary
+          </button>
+          <button className="bg-muted text-typo-body px-4 py-2 rounded-md font-medium hover:opacity-90 transition">
+            Secondary
+          </button>
         </div>
 
-        <div className="theme-preview-info">
-          <div className="info-icon">ℹ️ Information</div>
-          <div className="info-text">
+        <div className="flex items-start gap-2 bg-info/10 border border-info/20 p-3 rounded-md">
+          <span className="text-info text-lg">ℹ️</span>
+          <p className="text-sm text-typo-subtle">
             This is how informational content appears in your theme.
-          </div>
+          </p>
         </div>
       </div>
 
-      <div className="theme-info-card">
-        <div className="theme-info-grid">
-          <div className="theme-info-row">
-            <span className="theme-info-key">Theme:</span>
-            <span className="theme-info-value">{themeName}</span>
+      {/* Theme Info */}
+      <div className="bg-surface border border-subtle rounded-xl p-6 shadow-sm">
+        <div className="grid gap-2 text-sm">
+          <div className="flex justify-between">
+            <span className="font-medium text-typo-muted">Theme:</span>
+            <span>{themeName}</span>
           </div>
-          <div className="theme-info-row">
-            <span className="theme-info-key">Mode:</span>
-            <span className="theme-info-value">{themeMode}</span>
+          <div className="flex justify-between">
+            <span className="font-medium text-typo-muted">Mode:</span>
+            <span>{themeMode}</span>
           </div>
-          <div className="theme-info-row">
-            <span className="theme-info-key">HTML Class:</span>
-            <code className="theme-info-code">
-              {themeMode === 'dark' ? '.dark' : 'none'}
-            </code>
+          <div className="flex justify-between">
+            <span className="font-medium text-typo-muted">HTML Class:</span>
+            <code>{themeMode === 'dark' ? '.dark' : 'none'}</code>
           </div>
-          <div className="theme-info-row">
-            <span className="theme-info-key">Data Attribute:</span>
-            <code className="theme-info-code">
-              {themeName !== 'default' ? `data-theme="${themeName}"` : 'none'}
-            </code>
+          <div className="flex justify-between">
+            <span className="font-medium text-typo-muted">Data Attribute:</span>
+            <code>{themeName !== 'default' ? `data-theme="${themeName}"` : 'none'}</code>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-
-// A card component using the semantic tokens
-export function Card({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="bg-surface text-surface-fg border border-border rounded-lg p-6 hover:bg-surface-hover transition-colors duration-base">
-      {children}
-    </div>
-  )
-}
-
-// A primary button
-export function Button({ children }: { children: React.ReactNode }) {
-  return (
-    <button className="bg-accent text-accent-fg hover:bg-accent-hover px-4 py-2 rounded-md font-medium transition-colors duration-fast">
-      {children}
-    </button>
-  )
-}
-
-// A success alert
-export function SuccessAlert({ message }: { message: string }) {
-  return (
-    <div className="bg-success text-success-fg border border-success-border rounded-md p-4">
-      {message}
     </div>
   )
 }

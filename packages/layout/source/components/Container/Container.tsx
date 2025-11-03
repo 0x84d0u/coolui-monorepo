@@ -2,7 +2,6 @@ import React from "react"
 import { cn, cva, type VariantProps } from "@coolui/core"
 import { containerSizeVariants } from "@/utils/variants"
 
-
 const variants = cva("", {
     variants: {
         size: containerSizeVariants

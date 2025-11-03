@@ -1,6 +1,6 @@
-import * as Root from "@/ui/layout/root.slot"
-import * as Content from "@/ui/layout/content.slot"
-import * as Page from "@/ui/layout/page.slot"
+import * as Root from "../layout/root.slot"
+import * as Content from "../layout/content.slot"
+import * as Page from "../layout/page.slot"
 
 import * as SidebarLayout from "../sidebar/layout"
 import * as FooterLayout from "../footer/layout"
