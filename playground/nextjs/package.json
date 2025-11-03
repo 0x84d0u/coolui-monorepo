@@ -11,6 +11,7 @@
     "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
+    "@coolui/styles": "workspace:*",
     "@coolui/core": "workspace:*",
     "@coolui/theme": "workspace:*",
     "@coolui/typography": "workspace:*",

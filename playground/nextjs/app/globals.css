@@ -1,4 +1,3 @@
+@import 'tailwindcss';
 
-@import '@coolui/core/preset.css';
-@import "@coolui/typography/preset.css";
-@import "@coolui/layout/preset.css";
+@import '@coolui/styles/index.css';

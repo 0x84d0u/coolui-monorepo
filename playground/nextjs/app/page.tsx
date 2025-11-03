@@ -4,12 +4,14 @@
 import { cn } from "@coolui/core";
 import { Button, Card, ThemeSelector } from "@coolui/theme/client";
 import { Typography } from "@coolui/typography";
+import { Container } from "@coolui/layout";
 
 export default function Page() {
-  return <>
+  return <Container>
     <Typography.Display> Hello </Typography.Display>
 
     <div className={cn("")}>
+
       Core package
     </div>
 
@@ -26,5 +28,5 @@ export default function Page() {
 
     <SuccessAlert message="Well done broda" /> */}
 
-  </>
+  </Container>
 }

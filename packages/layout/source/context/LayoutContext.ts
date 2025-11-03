@@ -2,7 +2,7 @@
 
 import { createContext } from "react"
 
-export interface LayoutContextType {
+export interface RootLayoutContextType {
     sidebar: {
         open: () => void,
         close: () => void,
@@ -14,4 +14,4 @@ export interface LayoutContextType {
         scrolled : boolean,
     }
 }
-export const LayoutContext = createContext<LayoutContextType | null>(null)
+export const RootLayoutContext = createContext<RootLayoutContextType | null>(null)

@@ -1,10 +1,10 @@
 "use client";
 
-import { LayoutContext, LayoutContextType } from "@/context/LayoutContext";
+import { RootLayoutContext, RootLayoutContextType } from "@/context/LayoutContext";
 import React, { useEffect, useState } from "react";
 
 
-export const LayoutProvider = (props: { children?: React.ReactNode }) => {
+export const RootLayoutProvider = (props: { children?: React.ReactNode }) => {
     const [isOpen, setOpen] = useState<boolean>(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -14,7 +14,7 @@ export const LayoutProvider = (props: { children?: React.ReactNode }) => {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    const value: LayoutContextType = {
+    const value: RootLayoutContextType = {
         sidebar: {
             open: () => setOpen(true),
             close: () => setOpen(false),
@@ -27,7 +27,7 @@ export const LayoutProvider = (props: { children?: React.ReactNode }) => {
         }
     }
 
-    return <LayoutContext.Provider value={value}>
+    return <RootLayoutContext.Provider value={value}>
         {props.children}
-    </LayoutContext.Provider>
+    </RootLayoutContext.Provider>
 }

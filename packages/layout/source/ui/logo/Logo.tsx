@@ -1,7 +1,7 @@
 
-import * as Root from '@/slots/logo/root.slot'
+import * as Root from '@/ui/logo/root.slot'
 import { cn } from '@coolui/core'
-import { Image, type ImageProps } from '@/temporary/image.client'
+import { Image, type ImageProps } from '@/ui/temporary/image.client'
 import { TextProps, Typography } from '@coolui/typography'
 
 

@@ -1,11 +1,8 @@
 import React from "react";
 import { cn } from "@coolui/core";
 
-export type OwnProps = {
+export type Props = {
     asBody?: boolean
-};
-
-export type Props = OwnProps & {
     children?: React.ReactNode
     className?: string
 }

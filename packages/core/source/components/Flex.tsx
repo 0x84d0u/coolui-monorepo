@@ -43,7 +43,7 @@ export interface FlexProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof flexVariants> {
   gap?: number | string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(

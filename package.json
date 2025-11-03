@@ -17,6 +17,7 @@
     "tailwindcss": "^4",
     "tsup": "^8.5.0",
     "turbo": "latest",
-    "typescript": "latest"
+    "typescript": "latest",
+    "concurrently": "^8.2.2"
   }
 }

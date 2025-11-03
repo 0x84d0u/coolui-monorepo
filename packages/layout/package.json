@@ -17,6 +17,9 @@
   "sideEffects": [
     "*.css"
   ],
+  "main": "./dist/server.cjs",
+  "module": "./dist/server.js",
+  "types": "./dist/server.d.ts",
   "exports": {
     ".": {
       "types": "./dist/server.d.ts",
@@ -32,33 +35,22 @@
       "import": "./dist/server.js",
       "require": "./dist/server.cjs"
     },
-    "./preset.css": "./dist/preset.css",
     "./package.json": "./package.json"
   },
-  "main": "./dist/server.cjs",
-  "module": "./dist/server.js",
-  "types": "./dist/server.d.ts",
   "files": [
     "dist",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
-    "build:css": "tailwindcss -i ./source/styles/index.css -o ./dist/styles.css --minify",
-    "build:ts": "tsup",
-    "build": "rm -rf dist && pnpm run build:ts && npm run build:css",
-    "dev:ts": "tsup --watch",
-    "dev:css": "tailwindcss -i ./source/styles/index.css -o ./dist/styles.css --watch",
-    "dev": "concurrently \"pnpm run dev:ts\" \"pnpm run dev:css\"",
+    "build": "rm -rf dist && tsup",
+    "dev": "tsup --watch",
     "clean": "rm -rf dist .turbo node_modules/.cache",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint source --ext .ts,.tsx --max-warnings 0",
-    "lint:fix": "eslint source --ext .ts,.tsx --fix",
-    "prepublishOnly": "pnpm run clean && pnpm run build",
-    "test": "echo \"No tests yet\" && exit 0"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "tailwindcss": "^4",
+    "@coolui/styles": "workspace:*",
     "@coolui/core": "workspace:*",
     "@coolui/typography": "workspace:*"
   },

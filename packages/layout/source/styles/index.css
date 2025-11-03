@@ -1,8 +1,1 @@
-@import '@coolui/core/preset.css';
-@import "@coolui/typography/preset.css";
-
-@layer base {
-  body {
-    height: 100%;
-  }
-}
+@import '@coolui/styles/index.css';

@@ -1,9 +1,5 @@
-import { cn } from "@coolui/core";
 import React from "react";
-
-export type OwnProps = {
-  
-}
+import { cn } from "@coolui/core";
 
 export type Props = {
   children?: React.ReactNode;

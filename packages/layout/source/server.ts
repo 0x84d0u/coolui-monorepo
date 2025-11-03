@@ -1,2 +1,1 @@
-export * from './components/Container'
-export * from './components/Logo'
+export * from './components/Container/Container'

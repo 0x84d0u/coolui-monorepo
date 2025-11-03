@@ -1,0 +1,15 @@
+{
+  "name": "@coolui/styles",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    "./index.css": "./dist/index.css"
+  },
+  "scripts": {
+    "build": "tailwindcss -i ./source/index.css -o ./dist/index.css --minify",
+    "dev": "tailwindcss -i ./source/index.css -o ./dist/index.css --watch"
+  },
+  "ependencies": {
+    "tailwindcss": "^4.0.0"
+  }
+}

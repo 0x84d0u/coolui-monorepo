@@ -1,10 +1,10 @@
 "use client";
 
-import { LayoutContext } from "@/context/LayoutContext";
+import { RootLayoutContext } from "@/context/LayoutContext";
 import { useContext } from "react"
 
-export const useLayout = () => {
-    const context =  useContext(LayoutContext);
+export const useRootLayout = () => {
+    const context =  useContext(RootLayoutContext);
     if (!context) {
         throw new Error("useRootLayout must be wrapped")
     }

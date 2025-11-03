@@ -33,10 +33,10 @@ export default defineConfig([
         await mkdir('dist', { recursive: true });
 
         // Copy styles if they exist
-        if (existsSync('source/styles/index.css')) {
-          await copyFile('source/styles/index.css', 'dist/preset.css');
-          console.log('✓ Copied presets css file');
-        }
+        // if (existsSync('source/styles/index.css')) {
+        //   await copyFile('source/styles/index.css', 'dist/preset.css');
+        //   console.log('✓ Copied presets css file');
+        // }
 
         // Ensure "use client" is at the very top of client.js
         const clientPath = 'dist/client.js';
