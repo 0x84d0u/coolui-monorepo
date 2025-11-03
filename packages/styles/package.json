@@ -5,11 +5,15 @@
   "exports": {
     "./index.css": "./dist/index.css"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tailwindcss -i ./source/index.css -o ./dist/index.css --minify",
-    "dev": "tailwindcss -i ./source/index.css -o ./dist/index.css --watch"
+    "dev": "tailwindcss -i ./source/index.css -o ./dist/index.css --watch",
+    "clean": "rm -rf dist"
   },
-  "ependencies": {
+  "dependencies": {
     "tailwindcss": "^4.0.0"
   }
 }

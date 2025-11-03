@@ -132,7 +132,11 @@ importers:
         specifier: ^5.6.0
         version: 5.9.3
 
-  packages/styles: {}
+  packages/styles:
+    dependencies:
+      tailwindcss:
+        specifier: ^4.0.0
+        version: 4.1.16
 
   packages/theme:
     dependencies:
