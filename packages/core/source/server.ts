@@ -7,3 +7,4 @@ export * from './types'
 
 export * from './utils/cn'
 export * from './utils/cva'
+export * from './utils/variants'

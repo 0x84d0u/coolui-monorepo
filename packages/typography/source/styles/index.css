@@ -1,4 +1,3 @@
-@import 'tailwindcss';
 @import '@coolui/core/preset.css';
 
 @theme {
@@ -7,32 +6,41 @@
   --font-display: "Clash Display", "Satoshi", sans-serif;
   --font-code: "JetBrains Mono", ui-monospace, monospace;
 
-  --text-*: initial;
+  /* Type Scale */
   --text-xs: 0.75rem;
+  /* 12px */
   --text-sm: 0.875rem;
+  /* 14px */
   --text-base: 1rem;
+  /* 16px */
   --text-lg: 1.125rem;
+  /* 18px */
   --text-xl: 1.25rem;
+  /* 20px */
   --text-2xl: 1.5rem;
+  /* 24px */
   --text-3xl: 1.875rem;
+  /* 30px */
   --text-4xl: 2.25rem;
+  /* 36px */
   --text-5xl: 3rem;
+  /* 48px */
 
-  --text-weight-*: initial;
+  /* Font Weights */
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  --line-height-*: initial;
+  /* Line Heights */
   --line-height-tight: 1.1;
   --line-height-snug: 1.25;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.65;
   --line-height-loose: 1.8;
 
-  --tracking-*: initial;
+  /* Letter Spacing */
   --tracking-tightest: -0.04em;
   --tracking-tighter: -0.02em;
   --tracking-tight: -0.01em;
@@ -41,26 +49,54 @@
   --tracking-wider: 0.04em;
   --tracking-widest: 0.08em;
 
-
+  /* Typography Colors */
   --color-typo-body: #1a1a1a;
   --color-typo-surface: #111827;
-
   --color-typo-heading: #1a1a1a;
   --color-typo-subtle: #1a1a1a;
-
   --color-typo-accent: #1a1a1a;
   --color-typo-muted: #6b7280;
-
   --color-typo-success: #6b7280;
   --color-typo-info: #6b7280;
   --color-typo-destructive: #6b7280;
   --color-typo-warning: #6b7280;
 }
 
-
+.dark {
+  --color-typo-body: #f1f5f9;
+  --color-typo-surface: #f8fafc;
+  --color-typo-heading: #f1f5f9;
+  --color-typo-subtle: #cbd5e1;
+  --color-typo-accent: #f1f5f9;
+  --color-typo-muted: #94a3b8;
+  --color-typo-success: #94a3b8;
+  --color-typo-info: #94a3b8;
+  --color-typo-destructive: #94a3b8;
+  --color-typo-warning: #94a3b8;
+}
 
 @layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: revert;
+    /* restores browser default heading sizes */
+    font-weight: revert;
+    /* restores browser default weights */
+  }
+
   body {
-    @apply text-typo-body antialiased;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--tracking-normal);
+    color: var(--color-typo-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

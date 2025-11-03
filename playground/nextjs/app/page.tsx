@@ -3,11 +3,11 @@
 // import { Button, Card, SuccessAlert, ThemePreview, ThemeSelector } from "@coolui/theme/client";
 import { cn } from "@coolui/core";
 import { Button, Card, ThemeSelector } from "@coolui/theme/client";
-import { Text } from "@coolui/typography";
+import { Typography } from "@coolui/typography";
 
 export default function Page() {
   return <>
-    <Text.Display> Hello </Text.Display>
+    <Typography.Display> Hello </Typography.Display>
 
     <div className={cn("")}>
       Core package

@@ -4,6 +4,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { getThemeScript } from "@coolui/theme";
+import { Layout, LayoutProvider } from "@coolui/layout/client";
 // import {  ThemeProvider } from "@coolui/theme/client";
 
 const geistSans = Geist({
@@ -32,10 +33,20 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: getThemeScript() }}></script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-svh flex flex-col items-center justify-center gap-6`}
+        className={`${geistSans.variable} ${geistMono.variable} `}
       >
         <ThemeProvider>
-          {children}
+          <LayoutProvider>
+            <Layout
+              menu={<div> menu here</div>}
+              footer={<p>© {new Date().getFullYear()} uicool. All rights reserved.</p>}
+              logo={{
+                wordmark: "CoolUI",
+              }}
+            >
+              {children}
+            </Layout>
+          </LayoutProvider>
         </ThemeProvider>
       </body>
     </html>

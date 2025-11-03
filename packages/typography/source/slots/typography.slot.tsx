@@ -3,7 +3,7 @@ import React from "react"
 import { cn, cva, VariantProps } from "@coolui/core";
 import { fontFamilyVariants, fontSizeVariants, fontWeightVariants, textAlignVariants } from "@/utils/variants";
 
-const variants = cva("text-body font-body text-body-fg", {
+const variants = cva("", {
     variants: {
         family: fontFamilyVariants,
         size: fontSizeVariants,
@@ -29,7 +29,7 @@ export const Slot = ({
     size,
     weight,
     align,
-    uppercase,
+    uppercase = false,
     tagname = 'p',
     className,
     ...props
