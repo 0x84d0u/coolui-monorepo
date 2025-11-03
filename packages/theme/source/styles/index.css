@@ -1,0 +1,9 @@
+[data-theme="minimalist"] {
+}
+
+[data-theme="minimalist"].dark {
+}
+
+.something {
+    color: red;
+}

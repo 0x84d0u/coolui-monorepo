@@ -8,7 +8,7 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@coolui/theme/**/*.{js,ts,jsx,tsx}", // Scan your package
+    "./node_modules/@coolui/cool/**/*.{js,ts,jsx,tsx}", // Scan your package
   ],
 } satisfies Config;
 

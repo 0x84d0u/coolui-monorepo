@@ -1,10 +1,47 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    // Language and Environment
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    
+    // Modules
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": false,
+    
+    // Emit
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "outDir": "dist",
-    "rootDir": ".",
-    "tsBuildInfoFile": "./dist/.tsbuildinfo"
+    "noEmit": true, // tsup handles emit
+    "removeComments": false,
+    
+    // Interop Constraints
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    
+    // Type Checking
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    
+    // Skip lib check for faster builds
+    "skipLibCheck": true,
+    
+    // Paths (if needed)
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./source/*"]
+    }
   },
-  "include": ["src","export"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["source/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts", "**/*.spec.tsx", "**/*.test.tsx"]
 }

@@ -1,10 +1,4 @@
 @import "tailwindcss";
 
-@import "@coolui/theme/preset.css";
-
-@import "@coolui/theme/theme-dafault.css";
-/* @import "@coolui/theme/theme-minimalist.css"; */
-
-@import "@coolui/theme/globals.css";
-
-
+@import '@coolui/core/preset.css';
+@import "@coolui/typography/preset.css";

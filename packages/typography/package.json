@@ -1,5 +1,5 @@
 {
-  "name": "@coolui/core",
+  "name": "@coolui/typography",
   "version": "1.0.0",
   "description": "A collection of beautiful, accessible React components for Next.js",
   "author": "Your Name <your.email@example.com>",
@@ -58,9 +58,8 @@
     "test": "echo \"No tests yet\" && exit 0"
   },
   "dependencies": {
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "@coolui/core": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

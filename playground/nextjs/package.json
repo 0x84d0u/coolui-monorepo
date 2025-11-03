@@ -11,8 +11,9 @@
     "clean": "rm -rf .next .turbo node_modules"
   },
   "dependencies": {
-    "@coolui/theme": "workspace:*",
     "@coolui/core": "workspace:*",
+    "@coolui/theme": "workspace:*",
+    "@coolui/typography": "workspace:*",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "next": "16.0.1"

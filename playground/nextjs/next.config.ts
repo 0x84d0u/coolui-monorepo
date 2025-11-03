@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
   // },
   
   // Transpile the theme package since it's in the monorepo
-  transpilePackages: ["@coolui/theme"],};
+  transpilePackages: [
+    "@coolui/core",
+    "@coolui/theme",
+    "@coolui/typography",
+  ]};
 
 export default nextConfig;

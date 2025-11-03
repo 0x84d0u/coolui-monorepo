@@ -1,0 +1,46 @@
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-phone: 30rem;
+  --breakpoint-tablet: 40rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-desktop: 80rem;
+
+  --transition-base: 0.25s;
+
+  --color-body: #ffffff;
+  --color-surface: #f9fafb;
+
+  --color-accent: #2563eb;
+  --color-muted: #f3f4f6;
+
+  --color-success: #16a34a;
+  --color-info: #0284c7;
+  --color-destructive: #dc2626;
+  --color-warning: #f59e0b;
+}
+
+.dark {
+  --color-body: #0f172a;
+  --color-surface: #1e293b;
+  --color-heading: #f1f5f9;
+  --color-accent: #3b82f6;
+  --color-muted: #334155;
+  --color-success: #22c55e;
+  --color-info: #0ea5e9;
+  --color-destructive: #ef4444;
+  --color-warning: #fbbf24;
+}
+
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: var(--transition-base);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  body {
+    @apply bg-body;
+    transition: background-color var(--transition-base), color var(--transition-base);
+  }
+}

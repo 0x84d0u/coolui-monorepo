@@ -1,49 +1,89 @@
 {
   "name": "@coolui/theme",
-  "description": "Flexible theme system for Next.js and React",
-  "version": "0.1.0",
-  "main": "./dist/server.js",
-  "module": "./dist/server.mjs",
-  "types": "./dist/export/server.d.ts",
+  "version": "1.0.0",
+  "description": "A collection of beautiful, accessible React components for Next.js",
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/yourusername/coolui#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/coolui.git",
+    "directory": "packages/cool"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/coolui/issues"
+  },
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
   "exports": {
     ".": {
-      "types": "./dist/export/server.d.ts",
-      "import": "./dist/server.mjs",
-      "require": "./dist/server.js"
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js",
+      "require": "./dist/server.cjs"
     },
     "./client": {
-      "types": "./dist/export/client.d.ts",
-      "import": "./dist/client.mjs",
-      "require": "./dist/client.js"
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js"
     },
-    "./styles.css": {
-      "default": "./dist/styles.css"
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js",
+      "require": "./dist/server.cjs"
     },
-    "./preset.css": "./src/styles/preset.css",
-    "./theme-dafault.css": "./src/styles/theme-default.css",
-    "./theme-minimalist.css": "./src/styles/theme-minimalist.css",
-    "./globals.css": "./src/styles/globals.css"
+    "./preset.css": "./dist/preset.css",
+    "./package.json": "./package.json"
   },
+  "main": "./dist/server.cjs",
+  "module": "./dist/server.js",
+  "types": "./dist/server.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "clean": "rm -rf dist .turbo",
+    "build:css": "tailwindcss -i ./source/styles/index.css -o ./dist/styles.css --minify",
+    "build:ts": "tsup",
+    "build": "rm -rf dist && pnpm run build:ts && npm run build:css",
+    "dev:ts": "tsup --watch",
+    "dev:css": "tailwindcss -i ./source/styles/index.css -o ./dist/styles.css --watch",
+    "dev": "concurrently \"pnpm run dev:ts\" \"pnpm run dev:css\"",
+    "clean": "rm -rf dist .turbo node_modules/.cache",
     "typecheck": "tsc --noEmit",
-    "build:js": "tsup",
-    "build:types": "tsc --project tsconfig.build.json",
-    "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
-    "build": "pnpm run clean && pnpm run build:css && pnpm run build:js && pnpm run build:types",
-    "dev:js": "tsup --watch",
-    "dev:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --watch",
-    "dev": "concurrently \"pnpm run dev:js\" \"pnpm run dev:css\""
+    "lint": "eslint source --ext .ts,.tsx --max-warnings 0",
+    "lint:fix": "eslint source --ext .ts,.tsx --fix",
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "dependencies": {
+    "tailwindcss": "^4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.0"
   },
   "peerDependencies": {
-    "react": "^18 || ^19",
-    "react-dom": "^18 || ^19"
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@types/react": "^19",
-    "concurrently": "^8.2.0",
-    "react": "^19.2.0",
-    "typescript": "latest"
+  "keywords": [
+    "react",
+    "nextjs",
+    "components",
+    "ui",
+    "library",
+    "typescript",
+    "react-server-components",
+    "rsc"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }
