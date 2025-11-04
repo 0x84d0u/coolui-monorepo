@@ -15,7 +15,6 @@ export type AppLayoutRootProps = {
     footer?: React.ReactNode,
   }
   asBody?: Root.Props['asBody']
-
 }
 
 export const AppLayoutRoot = ({

@@ -71,7 +71,8 @@ export const AppLayout = ({
                 classNames={sidebarClassNames}
                 params={{
                     close: context.sidebar.close,
-                    isOpen: context.sidebar.isOpen
+                    isOpen: context.sidebar.isOpen,
+                    isLaptop: context.isLaptop
                 }}
                 children={{
                     branding: sidebarContent?.branding || <Logo />,
@@ -82,7 +83,7 @@ export const AppLayout = ({
                 classNames={headerClassNames}
                 params={{
                     containerSize: headerContainerSize,
-                    isScrolled: context.header.scrolled
+                    isScrolled: context.header.scrolled,
                 }}
                 children={{
                     branding: headerContent?.branding || <Logo />,

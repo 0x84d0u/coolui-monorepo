@@ -1,4 +1,5 @@
 export interface AppLayoutContextProps {
+    isLaptop: boolean,
     sidebar: {
         open: () => void,
         close: () => void,

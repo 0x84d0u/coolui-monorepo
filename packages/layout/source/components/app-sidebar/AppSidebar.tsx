@@ -1,6 +1,7 @@
 import * as Root from './root.slot'
 import * as Overlay from './overlay.slot'
 import * as Area from './area.slot';
+import { AppLayoutContextProps } from '@/lib/types';
 
 export type AppSidebarProps = {
     classNames?: {
@@ -16,8 +17,9 @@ export type AppSidebarProps = {
         cta?: Area.Props['children']
     }
     params?: {
-        isOpen?: Root.Props['isOpen']
-        close?: Overlay.Props['close']
+        isOpen?: AppLayoutContextProps['sidebar']['isOpen']
+        close?: AppLayoutContextProps['sidebar']['close']
+        isLaptop?: AppLayoutContextProps['isLaptop']
     }
 }
 
@@ -26,8 +28,8 @@ export const AppSidebar = ({
     children,
     params,
 }: AppSidebarProps) => {
-    const rootProps: Root.Props = { isOpen: params?.isOpen, className: classNames?.root }
-    const overlayProps: Overlay.Props = { isOpen: params?.isOpen, close: params?.close, className: classNames?.overlay }
+    const rootProps: Root.Props = { isOpen: params?.isOpen, isLaptop: params?.isLaptop, className: classNames?.root }
+    const overlayProps: Overlay.Props = { isOpen: params?.isOpen, isLaptop: params?.isLaptop, close: params?.close, className: classNames?.overlay }
 
     const areaProps: Record<string, Area.Props> = {
         branding: { children: children?.branding, className: classNames?.branding },
