@@ -17,7 +17,7 @@
   "sideEffects": [
     "*.css"
   ],
-    "main": "./dist/server.cjs",
+  "main": "./dist/server.cjs",
   "module": "./dist/server.js",
   "types": "./dist/server.d.ts",
   "exports": {
@@ -50,7 +50,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "tailwindcss": "^4"
+    "@coolui/styles": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

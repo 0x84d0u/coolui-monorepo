@@ -50,7 +50,6 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "tailwindcss": "^4",
     "@coolui/styles": "workspace:*",
     "@coolui/core": "workspace:*"
   },

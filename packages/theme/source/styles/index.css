@@ -1,11 +1,5 @@
-@config  '@coolui/styles/index.css';
+@import '../../../styles/source/index.css';
 
-[data-theme="minimalist"] {
-}
+[data-theme="minimalist"] {}
 
-[data-theme="minimalist"].dark {
-}
-
-.something {
-    color: red;
-}
+[data-theme="minimalist"].dark {}

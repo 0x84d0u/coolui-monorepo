@@ -1,11 +1,11 @@
-// import "@coolui/theme/styles.css";
-import { ThemeProvider } from "@coolui/theme/client";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import { getThemeScript } from "@coolui/theme";
-import { RootLayout, RootLayoutProvider } from "@coolui/layout/client";
-// import {  ThemeProvider } from "@coolui/theme/client";
+import { ThemeProvider } from "@coolui/theme/client";
+
+import { AppLayout, AppLayoutProvider } from "@coolui/layout/client";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,11 +36,11 @@ export default function NextRootLayout({
         className={`${geistSans.variable} ${geistMono.variable} `}
       >
         <ThemeProvider>
-          {/* <RootLayoutProvider> */}
-            {/* <RootLayout> */}
+          <AppLayoutProvider>
+            <AppLayout>
               {children}
-            {/* </RootLayout> */}
-          {/* </RootLayoutProvider> */}
+            </AppLayout>
+          </AppLayoutProvider>
         </ThemeProvider>
       </body>
     </html>

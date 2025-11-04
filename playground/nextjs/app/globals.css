@@ -1,2 +1,4 @@
 @import 'tailwindcss';
 @import '@coolui/styles/index.css';
+
+@source "../../../packages/**/*.{ts,tsx,js,jsx}";

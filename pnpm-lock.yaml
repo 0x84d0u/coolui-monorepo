@@ -30,34 +30,6 @@ importers:
         specifier: latest
         version: 5.9.3
 
-  packages/cool:
-    dependencies:
-      tailwindcss:
-        specifier: ^4
-        version: 4.1.16
-    devDependencies:
-      '@types/node':
-        specifier: ^22.0.0
-        version: 22.18.13
-      '@types/react':
-        specifier: ^18.3.0
-        version: 18.3.26
-      '@types/react-dom':
-        specifier: ^18.3.0
-        version: 18.3.7(@types/react@18.3.26)
-      react:
-        specifier: ^18.3.0
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.3.0
-        version: 18.3.1(react@18.3.1)
-      tsup:
-        specifier: ^8.3.5
-        version: 8.5.0(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)
-      typescript:
-        specifier: ^5.6.0
-        version: 5.9.3
-
   packages/core:
     dependencies:
       '@coolui/styles':
@@ -69,9 +41,6 @@ importers:
       clsx:
         specifier: ^2.1.0
         version: 2.1.1
-      tailwindcss:
-        specifier: ^4
-        version: 4.1.16
     devDependencies:
       '@types/node':
         specifier: ^22.0.0
@@ -106,9 +75,6 @@ importers:
       '@coolui/typography':
         specifier: workspace:*
         version: link:../typography
-      tailwindcss:
-        specifier: ^4
-        version: 4.1.16
     devDependencies:
       '@types/node':
         specifier: ^22.0.0
@@ -134,15 +100,18 @@ importers:
 
   packages/styles:
     dependencies:
-      tailwindcss:
-        specifier: ^4.0.0
-        version: 4.1.16
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.1
+      clsx:
+        specifier: ^2.1.0
+        version: 2.1.1
 
   packages/theme:
     dependencies:
-      tailwindcss:
-        specifier: ^4
-        version: 4.1.16
+      '@coolui/styles':
+        specifier: workspace:*
+        version: link:../styles
     devDependencies:
       '@types/node':
         specifier: ^22.0.0
@@ -174,9 +143,6 @@ importers:
       '@coolui/styles':
         specifier: workspace:*
         version: link:../styles
-      tailwindcss:
-        specifier: ^4
-        version: 4.1.16
     devDependencies:
       '@types/node':
         specifier: ^22.0.0

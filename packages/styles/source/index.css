@@ -4,6 +4,7 @@
   --transition-base: 0.25s;
 
   /* Breakpoints */
+  --breakpoint-*: initial;
   --breakpoint-phone: 30rem;
   --breakpoint-tablet: 40rem;
   --breakpoint-laptop: 64rem;
@@ -15,17 +16,27 @@
   --color-surface-2: #f3f4f6;
   --color-border: #e5e7eb;
   --color-ring: #2563eb33;
-
-  /* Accent & States */
-  --color-accent: #2563eb;
   --color-subtle: #f9fafb;
   --color-muted: #f3f4f6;
 
-  /* Semantic */
+  /* Accent & States */
+  --color-accent: #2563eb;
   --color-success: #16a34a;
   --color-info: #0284c7;
   --color-destructive: #dc2626;
   --color-warning: #f59e0b;
+
+  /* Typography Colors */
+  --color-typo-body: #1a1a1a;
+  --color-typo-surface: #111827;
+  --color-typo-heading: #1a1a1a;
+  --color-typo-subtle: #6b7280;
+  --color-typo-accent: #1a1a1a;
+  --color-typo-muted: #9ca3af;
+  --color-typo-success: #6b7280;
+  --color-typo-info: #6b7280;
+  --color-typo-destructive: #6b7280;
+  --color-typo-warning: #6b7280;
 
   /* Fonts */
   --font-body: "Satoshi", system-ui, sans-serif;
@@ -52,39 +63,36 @@
 
   /* Line heights */
   --line-height-tight: 1.1;
+  --line-height-snug: 1.25;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.65;
+  --line-height-loose: 1.8;
 
   /* Letter spacing */
+  --tracking-tightest: -0.04em;
+  --tracking-tighter: -0.02em;
+  --tracking-tight: -0.01em;
   --tracking-normal: 0em;
   --tracking-wide: 0.02em;
-
-  /* Typography Colors */
-  --color-typo-body: #1a1a1a;
-  --color-typo-heading: #1a1a1a;
-  --color-typo-subtle: #6b7280;
-  --color-typo-muted: #9ca3af;
+  --tracking-wider: 0.04em;
+  --tracking-widest: 0.08em;
 }
 
-/* 🌙 Dark mode */
+/* Dark mode */
 .dark {
   --color-body: #0f172a;
   --color-surface: #1e293b;
   --color-surface-2: #334155;
   --color-border: #475569;
   --color-ring: #3b82f633;
-
   --color-accent: #3b82f6;
   --color-subtle: #1a1a1a;
   --color-muted: #334155;
-
   --color-success: #22c55e;
   --color-info: #0ea5e9;
   --color-destructive: #ef4444;
   --color-warning: #fbbf24;
-
-
-    --color-typo-body: #f1f5f9;
+  --color-typo-body: #f1f5f9;
   --color-typo-surface: #f8fafc;
   --color-typo-heading: #f1f5f9;
   --color-typo-subtle: #cbd5e1;

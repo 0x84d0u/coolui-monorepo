@@ -2,7 +2,15 @@
   "name": "@coolui/styles",
   "version": "0.1.0",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
     "./index.css": "./dist/index.css",
     "./preset.css": "./source/index.css"
   },
@@ -10,11 +18,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "tailwindcss -i ./source/index.css -o ./dist/index.css --minify",
+    "build": "tsup && tailwindcss -i ./source/index.css -o ./dist/index.css --minify",
     "dev": "tailwindcss -i ./source/index.css -o ./dist/index.css --watch",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist .turbo node_modules/.cache",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "tailwindcss": "^4.0.0"
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0"
   }
 }

@@ -1,6 +1,7 @@
 {
   "files": [],
   "references": [
+    { "path": "./packages/styles" },
     { "path": "./packages/core" },
     { "path": "./packages/theme" },
     { "path": "./packages/typography" },

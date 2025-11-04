@@ -1,24 +1,30 @@
-// "use client";
-
-// import { Button, Card, SuccessAlert, ThemePreview, ThemeSelector } from "@coolui/theme/client";
-import { cn } from "@coolui/core";
 import { ThemePreview, ThemeSelector } from "@coolui/theme/client";
 import { Typography } from "@coolui/typography";
-import { Container } from "@coolui/layout";
+import { PageSection } from "@coolui/layout";
 
 export default function Page() {
-  return <Container>
-    <Typography.Display> Hello </Typography.Display>
+  return <>
+    <PageSection title="@coolui/typography">
+      <Typography.Display> Lorem ipsum dolor sit </Typography.Display>
+      <Typography.H1> Lorem ipsum dolor sit </Typography.H1>
+      <Typography.H2> Lorem ipsum dolor sit </Typography.H2>
+      <Typography.H3> Lorem ipsum dolor sit </Typography.H3>
+      <Typography.H4> Lorem ipsum dolor sit </Typography.H4>
+      <Typography.H5> Lorem ipsum dolor sit </Typography.H5>
+      <Typography.H6> Lorem ipsum dolor sit </Typography.H6>
+      <Typography.Body>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero recusandae rerum ipsum eum maxime explicabo quo suscipit nulla dicta deleniti sint veritatis corrupti, optio vitae labore, distinctio, illo ducimus magnam!
+      </Typography.Body>
+      <Typography.Small>Small text</Typography.Small>
+      <Typography.Caption>Caption</Typography.Caption>
+      <Typography.Code>Code</Typography.Code>
+    </PageSection>
 
-    <div className={cn("")}>
 
-      Core package
-    </div>
+    <PageSection title="@coolui/theme" layout='split'>
+      <ThemeSelector />
+      <ThemePreview />
+    </PageSection>
 
-
-    <ThemeSelector />
-
-    <ThemePreview />
-
-  </Container>
+  </>
 }

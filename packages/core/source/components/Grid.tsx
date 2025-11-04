@@ -1,5 +1,5 @@
+import { cn } from '@coolui/styles';
 import React from 'react';
-import { cn } from '../utils/cn';
 
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   columns?: number | string;

@@ -1,7 +1,6 @@
 "use client";
 
-export { RootLayoutProvider } from './context/LayoutProvider';
-export { useRootLayout } from './context/useLayout';
-
-export { RootLayout, type RootLayoutProps} from './components/RootLayout/RootLayout.client';
+export { useAppLayout } from './lib/hooks';
+export { AppLayoutProvider } from './lib/providers';
+export { AppLayout, type AppLayoutProps } from './components/app-layout/AppLayout'
 

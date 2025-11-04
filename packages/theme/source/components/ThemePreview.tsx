@@ -1,5 +1,4 @@
 'use client';
- import '@coolui/styles/index.css';
 
 import { useTheme } from '@/hooks/useTheme'
 

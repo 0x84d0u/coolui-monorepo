@@ -1,1 +1,1 @@
-export * from './components/Container/Container'
+export * from './components/page-section/PageSection'

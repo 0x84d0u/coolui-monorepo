@@ -1,6 +1,6 @@
+import { cn, cva, VariantProps } from '@coolui/styles';
 import React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '../utils/cn';
+
 
 const flexVariants = cva('flex', {
   variants: {
@@ -41,7 +41,7 @@ const flexVariants = cva('flex', {
 
 export interface FlexProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof flexVariants> {
+  VariantProps<typeof flexVariants> {
   gap?: number | string;
   children?: React.ReactNode;
 }
@@ -56,7 +56,9 @@ export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     return (
       <div
         ref={ref}
-        className={cn(flexVariants({ direction, align, justify, wrap, className }))}
+        className={cn(
+          flexVariants({ direction, align, justify, wrap, className })
+        )}
         style={computedStyle}
         {...props}
       >

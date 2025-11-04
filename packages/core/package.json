@@ -45,10 +45,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@coolui/styles": "workspace:*",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "tailwindcss": "^4"
+    "@coolui/styles": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
