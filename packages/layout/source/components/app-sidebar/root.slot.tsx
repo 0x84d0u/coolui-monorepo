@@ -15,11 +15,14 @@ export const Slot = ({
     children
 }: Props) => <aside
     className={cn(
-        "transition-transform",
-        "fixed inset-y-0 left-0 z-40 w-64",
+        "transition-transform duration-300",
         "h-svh flex flex-col",
         "bg-surface text-typo-surface border-r border-subtle",
-        "laptop:sticky laptop:top-0 laptop:translate-x-0 laptop:shrink-0",
+        // Fixed only on mobile/tablet
+        !isLaptop && "fixed inset-y-0 left-0 z-40",  // ← Conditional fixed
+        "w-64",
+        // On laptop: just a flex child with shrink-0
+        "laptop:shrink-0",  // ← No positioning, just flex behavior
         !isLaptop && (isOpen ? "translate-x-0" : "-translate-x-full"),
         className
     )}
