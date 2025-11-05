@@ -1,4 +1,4 @@
-import { Theme } from "@/server";
+import { Theme } from "../lib/types";
 
 export function mergeThemes(defaults: Theme[], custom: Theme[]): Theme[] {
   const seen = new Set<string>();

@@ -12,9 +12,20 @@ export const AppLayoutProvider = ({ children }: AppLayoutProviderProps) => {
     // Track Header scroll 
     useEffect(() => {
         const onScroll = () => setHeaderScrolled(window.scrollY > 10);
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === 'Escape' && isSidebarOpen) {
+                setSidebarOpen(false);
+            }
+        };
+
         window.addEventListener("scroll", onScroll);
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+        window.addEventListener('keydown', handleEscape);
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener('keydown', handleEscape);
+        };
+    }, [isSidebarOpen]);
 
     // Close sidebar on escape key
     useEffect(() => {

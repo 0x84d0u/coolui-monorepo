@@ -15,7 +15,6 @@ export interface Config {
     modeStorageKey: string;
 }
 
-
 export interface State {
     themeName: string;
     themeMode: ThemeMode;

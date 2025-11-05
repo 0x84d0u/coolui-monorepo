@@ -11,18 +11,16 @@ export default defineConfig([
     clean: false,
     treeshake: true,
     minify: false,
-    bundle: true, // Bundle everything together
+    bundle: true,
     external: ['react', 'react-dom'],
     outDir: 'dist',
     banner: {
-      js: "use client"
+      js: '"use client";'
     },
     esbuildOptions(options) {
-      // Force the banner to be added
       options.banner = {
         js: '"use client";',
       };
-      // Preserve directives during bundling
       options.legalComments = 'inline';
     },
     async onSuccess() {
@@ -32,11 +30,11 @@ export default defineConfig([
       try {
         await mkdir('dist', { recursive: true });
 
-        // Copy styles if they exist
-        // if (existsSync('source/styles/preset.css')) {
-        //   await copyFile('source/styles/preset.css', 'dist/preset.css');
-        //   console.log('✓ Copied presets css file');
-        // }
+        // ✅ FIXED: Copy the actual styles.css file
+        if (existsSync('source/styles.css')) {
+          await copyFile('source/styles.css', 'dist/styles.css');
+          console.log('✓ Copied styles.css');
+        }
 
         // Ensure "use client" is at the very top of client.js
         const clientPath = 'dist/client.js';
@@ -65,7 +63,7 @@ export default defineConfig([
     dts: true,
     splitting: false,
     sourcemap: true,
-    clean: false, // Don't clean since client build runs first
+    clean: false,
     treeshake: true,
     minify: false,
     external: ['react', 'react-dom'],

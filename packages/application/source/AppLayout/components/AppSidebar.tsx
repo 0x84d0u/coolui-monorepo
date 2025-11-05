@@ -18,6 +18,11 @@ export const AppSidebar = ({
 }: AppSidebarProps) => 
     {
     return <Wrapper
+        htmlProps={{
+            role: 'complementary',
+            "aria-label": "Application sidebar",
+            "aria-hidden": !isSidebarOpen
+        }}
         sidebarEnabled={sidebarEnabled}
         isSidebarOpen={isSidebarOpen || false}
     >

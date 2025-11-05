@@ -12,6 +12,13 @@ export const Overlay = ({
     onClick,
     className,
 }: OverlayProps) => <div
+        role="button"
+        tabIndex={0}
+        // onKeyDown={(e) => {
+        //     if (e.key === 'Enter' || e.key === ' ') {
+        //         onClick && onClick?.();
+        //     }
+        // }}
         className={cn(
             "fixed inset-0 z-20 bg-overlay backdrop-blur-sm transition-opacity",
             "laptop:hidden",

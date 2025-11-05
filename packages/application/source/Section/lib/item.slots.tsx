@@ -49,7 +49,7 @@ export const Header = (props: Pick<Content, 'title' | 'subtitle' | 'headerAction
         }
     }
 
-    const showHeading = !props.title && !props.subtitle
+    const showHeading = props.title || props.subtitle
 
     return <div className="flex justify-between">
         {showHeading && <div className="flex-1">

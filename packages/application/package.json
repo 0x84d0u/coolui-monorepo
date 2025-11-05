@@ -4,11 +4,11 @@
   "description": "A collection of beautiful, accessible React components for Next.js",
   "author": "Your Name <your.email@example.com>",
   "license": "MIT",
-  "homepage": "https://github.com/yourusername/coolui#readme",
+  "homepage": "https://github.com/0x84d0u/coolui#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/coolui.git",
-    "directory": "packages/cool"
+    "url": "https://github.com/0x84d0u/coolui-monorepo.git",
+    "directory": "packages/application"
   },
   "bugs": {
     "url": "https://github.com/yourusername/coolui/issues"
@@ -35,7 +35,6 @@
       "import": "./dist/server.js",
       "require": "./dist/server.cjs"
     },
-    "./styles.css": "./source/styles.css",
     "./package.json": "./package.json"
   },
   "files": [

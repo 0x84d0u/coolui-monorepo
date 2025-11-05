@@ -1,10 +1,17 @@
 import { cn } from "@coolui/styles"
 import { Config, State } from "./types"
 import { Flex } from "@coolui/core"
+import { ComponentProps } from "react"
 
-export const Wrapper = (props: Pick<State, 'isSidebarOpen'> & Pick<Config, 'sidebarEnabled'> & { children?: React.ReactNode }) => {
+export const Wrapper = (props: 
+    Pick<State, 'isSidebarOpen'> & 
+    Pick<Config, 'sidebarEnabled'> & { 
+        children?: React.ReactNode
+        htmlProps?: ComponentProps<'aside'>
+ }) => {
     if (!props.sidebarEnabled) return null;
     return <aside
+        {...props.htmlProps}
         className={cn(
             "bg-(--cool-sidebar-bg) text-(--cool-sidebar-color)",
             "border-r border-border",
@@ -28,13 +35,6 @@ export const Wrapper = (props: Pick<State, 'isSidebarOpen'> & Pick<Config, 'side
 }
 
 export const Header = (props: { children: React.ReactNode }) => <Flex direction='column' className={cn("tablet:flex p-6 border-b border-border")}>{props.children}</Flex>
-export const Body = (props: { children?: React.ReactNode }) => <Flex direction='column' className={cn("p-6 flex-1 overflow-y-auto",)}>
-    {props.children}
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore error, sapiente quas odio animi, tenetur harum facere quidem, eius consequatur ipsa amet voluptatem libero. Officia deleniti autem debitis tempore totam?
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore error, sapiente quas odio animi, tenetur harum facere quidem, eius consequatur ipsa amet voluptatem libero. Officia deleniti autem debitis tempore totam?
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore error, sapiente quas odio animi, tenetur harum facere quidem, eius consequatur ipsa amet voluptatem libero. Officia deleniti autem debitis tempore totam?
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore error, sapiente quas odio animi, tenetur harum facere quidem, eius consequatur ipsa amet voluptatem libero. Officia deleniti autem debitis tempore totam?
-</Flex>
-
+export const Body = (props: { children?: React.ReactNode }) => <Flex direction='column' className={cn("p-6 flex-1 overflow-y-auto",)}>{props.children}</Flex>
 export const Footer = (props: { children?: React.ReactNode }) => <Flex direction='column' className={cn("p-6 border-t border-border")}>{props.children}</Flex>
 

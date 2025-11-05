@@ -1,6 +1,6 @@
 'use client';
 
-import { DEFAULT_THEME_CONFIG } from "@/server";
+import { DEFAULT_THEME_CONFIG } from "../lib/constants";
 
 
 export function applyThemeBeforeRender(
