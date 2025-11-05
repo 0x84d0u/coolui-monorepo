@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 
 import { DEFAULT_THEME_CONFIG } from "../lib/constants";
 
@@ -16,6 +16,14 @@ export function ThemeProvider({
   config = DEFAULT_THEME_CONFIG
 }: ThemeProviderProps) {
 
+  // ✅ Memoize the merged config to prevent recreation on every render
+  const mergedConfig: Config = useMemo(() => ({
+    defaultMode: config.defaultMode || DEFAULT_THEME_CONFIG.defaultMode,
+    defaultTheme: config.defaultTheme || DEFAULT_THEME_CONFIG.defaultTheme,
+    modeStorageKey: config.modeStorageKey || DEFAULT_THEME_CONFIG.modeStorageKey,
+    themeStorageKey: config.themeStorageKey || DEFAULT_THEME_CONFIG.themeStorageKey,
+    themes: mergeThemes(DEFAULT_THEME_CONFIG.themes, config.themes || [])
+  }), [config.defaultMode, config.defaultTheme, config.modeStorageKey, config.themeStorageKey, config.themes]);
 
   const {
     defaultMode,
@@ -23,21 +31,19 @@ export function ThemeProvider({
     modeStorageKey,
     themeStorageKey,
     themes,
-  }: Config = {
-    defaultMode: config.defaultMode || DEFAULT_THEME_CONFIG.defaultMode,
-    defaultTheme: config.defaultTheme || DEFAULT_THEME_CONFIG.defaultTheme,
-    modeStorageKey: config.modeStorageKey || DEFAULT_THEME_CONFIG.modeStorageKey,
-    themeStorageKey: config.themeStorageKey || DEFAULT_THEME_CONFIG.themeStorageKey,
-    themes: mergeThemes(DEFAULT_THEME_CONFIG.themes, config.themes || [])
-  }
-
+  } = mergedConfig;
 
   const [themeName, setThemeNameState] = useState<string>(defaultTheme);
   const [themeMode, setThemeModeState] = useState<ThemeMode>(defaultMode);
   const [isMounted, setMounted] = useState(false);
 
-  const isValidTheme = (theme: string) => themes.some(t => t.value === theme);
+  // ✅ Memoize validation function
+  const isValidTheme = useMemo(
+    () => (theme: string) => themes.some(t => t.value === theme),
+    [themes]
+  );
 
+  // ✅ Initial setup - should only run ONCE
   useEffect(() => {
     setMounted(true);
 
@@ -56,8 +62,10 @@ export function ThemeProvider({
         setThemeModeState('dark');
       }
     }
-  }, [themeStorageKey, modeStorageKey, themes]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // ← Run only once on mount
 
+  // ✅ Apply theme changes to DOM
   useEffect(() => {
     if (!isMounted) return;
 
@@ -79,23 +87,25 @@ export function ThemeProvider({
     localStorage.setItem(modeStorageKey, themeMode);
   }, [themeName, themeMode, isMounted, themeStorageKey, modeStorageKey]);
 
-  const setThemeName = (theme: string) => {
+  // ✅ Memoize functions to prevent recreation
+  const setThemeName = useCallback((theme: string) => {
     if (isValidTheme(theme)) {
       setThemeNameState(theme);
     } else {
       console.warn(`Theme "${theme}" is not registered. Available themes:`, themes.map(t => t.value));
     }
-  };
+  }, [isValidTheme, themes]);
 
-  const setThemeMode = (mode: ThemeMode) => {
+  const setThemeMode = useCallback((mode: ThemeMode) => {
     setThemeModeState(mode);
-  };
+  }, []);
 
-  const toggleMode = () => {
+  const toggleMode = useCallback(() => {
     setThemeModeState(prev => prev === 'light' ? 'dark' : 'light');
-  };
+  }, []);
 
-  const state: State = {
+  // ✅ Memoize the context value to prevent unnecessary re-renders
+  const state: State = useMemo(() => ({
     themeName,
     themeMode,
     themes,
@@ -103,7 +113,7 @@ export function ThemeProvider({
     setThemeMode,
     toggleMode,
     mounted: isMounted,
-  };
+  }), [themeName, themeMode, themes, setThemeName, setThemeMode, toggleMode, isMounted]);
 
   return (
     <ThemeContext.Provider value={state}>
@@ -111,4 +121,3 @@ export function ThemeProvider({
     </ThemeContext.Provider>
   );
 }
-

@@ -5,17 +5,17 @@ export const THEME_CONFIG: ThemeConfig = {
     defaultTheme: 'default',
     modeStorageKey: 'cooltheme-mode',
     themeStorageKey: 'cooltheme-name',
-    themes: []
+    themes: [],
 }
 
 export const LAYOUT_CONFIG : AppLayoutConfig = {
     headerEnabled: true,
     headerFixed: true,
-    headerThemeSelectEneabled: true,
     headerThemeToggleEnabled: true,
     
     logoEnabled: true,
     logoWordmark: "Cool UI",
+    logoImgUrl: undefined,
     
     sidebarEnabled: true,
     

@@ -35,6 +35,7 @@
       "import": "./dist/server.js",
       "require": "./dist/server.cjs"
     },
+    "./styles.css": "./source/styles.css",
     "./package.json": "./package.json"
   },
   "files": [

@@ -9,25 +9,14 @@ export const AppLayoutProvider = ({ children }: AppLayoutProviderProps) => {
     const [isHeaderScrolled, setHeaderScrolled] = useState<boolean>(false)
     const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false)
 
-    // Track Header scroll 
+    // Track header scroll (only needs to run once)
     useEffect(() => {
         const onScroll = () => setHeaderScrolled(window.scrollY > 10);
-        const handleEscape = (e: KeyboardEvent) => {
-            if (e.key === 'Escape' && isSidebarOpen) {
-                setSidebarOpen(false);
-            }
-        };
-
         window.addEventListener("scroll", onScroll);
-        window.addEventListener('keydown', handleEscape);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []); // ← Only run once on mount
 
-        return () => {
-            window.removeEventListener("scroll", onScroll);
-            window.removeEventListener('keydown', handleEscape);
-        };
-    }, [isSidebarOpen]);
-
-    // Close sidebar on escape key
+    // Handle escape key to close sidebar
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
             if (e.key === 'Escape' && isSidebarOpen) {

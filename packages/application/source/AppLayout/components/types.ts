@@ -3,11 +3,10 @@ import { Config, Content, State } from "../lib/types"
 export type AppHeaderProps =
     Pick<Content, 'headerActions' | 'headerToolbar'> &
     Pick<Config,
-        'headerEnabled' | 'headerFixed' | 'headerThemeToggleEnabled' |
-        'logoEnabled' | 'logoImgUrl' | 'logoWordmark' |
-        'sidebarEnabled'
+        'headerEnabled' | 'headerFixed' |
+        'logoEnabled' | 'logoImgUrl' | 'logoWordmark'
     > &
-    Partial<Pick<State, 'isSidebarOpen' | 'isHeaderScrolled' | 'toggleSidebar'>>
+    Partial<Pick<State, 'isSidebarOpen' | 'isHeaderScrolled'>>
     
 
 
