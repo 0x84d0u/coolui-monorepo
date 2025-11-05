@@ -1,1 +1,0 @@
-export const AppLogo = () => <div> App Logo </div>

@@ -1,4 +1,4 @@
-@import '../../styles//source/index.css';
+@import '../../styles/source/index.css';
 
 @theme {
     --cool-header-bg: var(--color-body);

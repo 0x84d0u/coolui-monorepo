@@ -1,19 +1,20 @@
 'use client';
 
-import { MODE_STORAGE_KEY, THEME_STORAGE_KEY } from "./constants";
+import { DEFAULT_THEME_CONFIG } from "@/server";
+
 
 export function applyThemeBeforeRender(
-  themeStorageKey = THEME_STORAGE_KEY,
-  modeStorageKey = MODE_STORAGE_KEY
+  themeStorageKey = DEFAULT_THEME_CONFIG.themeStorageKey,
+  modeStorageKey = DEFAULT_THEME_CONFIG.modeStorageKey
 ): void {
   try {
     const theme = localStorage.getItem(themeStorageKey);
     const mode = localStorage.getItem(modeStorageKey);
-
+    
     if (theme && theme !== 'default') {
       document.documentElement.setAttribute('data-theme', theme);
     }
-
+    
     if (mode === 'dark') {
       document.documentElement.classList.add('dark');
     }

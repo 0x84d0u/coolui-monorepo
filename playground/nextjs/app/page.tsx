@@ -2,54 +2,80 @@
 // import { Typography } from "@coolui/typography";
 // import { Page, PageSection } from "@coolui/layout";
 
-import { AppPageSection } from "@coolui/application";
+import { Section } from "@coolui/application";
+import { ThemeDebug } from "@coolui/application/client";
 
 export default function NextPage() {
 
-  return <div>
-    <AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection><AppPageSection>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
-  </AppPageSection>
+  return <div className="p-12">
+
+    <div className="bg-surface p-12">
+      <ThemeDebug />
+    </div>
+
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
+    <Section>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
+    </Section>
   </div>
 
   // return <Page
