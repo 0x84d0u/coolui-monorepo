@@ -2,8 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { AppLayout, DEFAULT_LAYOUT_CONFIG, DEFAULT_THEME_CONFIG, NextThemeScript } from "@coolui/application";
-import { LayoutProvider, ThemeProvider } from "@coolui/application/client";
+import { AppLayout, AppLayoutProvider, ThemeProvider } from "@coolui/application/client";
+import { NextThemeScript } from "@coolui/application";
+import { LAYOUT_CONFIG, THEME_CONFIG } from "./config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,8 +22,6 @@ export const metadata: Metadata = {
 };
 
 
-const layoutConfig = DEFAULT_LAYOUT_CONFIG
-const themeConfig = DEFAULT_THEME_CONFIG
 
 
 export default function NextRootLayout({
@@ -33,27 +32,17 @@ export default function NextRootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <NextThemeScript config={themeConfig}/>
-        {/* <script dangerouslySetInnerHTML={{ __html: getThemeScript() }}></script> */}
+        <NextThemeScript config={THEME_CONFIG}/>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} `}
       >
-        <ThemeProvider config={themeConfig}>
-          <LayoutProvider>
-            <AppLayout
-              config={layoutConfig}
-              // content={{
-              //   headerActions: undefined,
-              //   headerToolbar: undefined,
-              //   sidebarHeader: undefined,
-              //   sidebarBody: undefined,
-              //   sidebarFooter: undefined,
-              // }}
-            >
+        <ThemeProvider config={THEME_CONFIG}>
+          <AppLayoutProvider>
+            <AppLayout {...LAYOUT_CONFIG}>
               {children}
             </AppLayout>
-          </LayoutProvider>
+          </AppLayoutProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,0 +1,3 @@
+export const Wrapper = (props: { children: React.ReactNode }) => <div className="relative flex min-h-svh h-full ">{props.children} </div>
+export const SidebarOff = (props: { children: React.ReactNode }) => <div className="min-h-svh flex-1 flex flex-col">{props.children}</div>
+export const Main = (props: { children: React.ReactNode }) => <main className="flex-1 overflow-y-auto"> {props.children}</main>
