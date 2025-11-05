@@ -5,17 +5,16 @@ import { Overlay } from '@coolui/core'
 import type { LayoutState } from '@/AppLayout/state/types'
 import type { LayoutConfig } from '@/AppLayout/config/types'
 
-import * as Slot from '../ui/slots'
-import { Sidebar, SidebarProps } from '../ui/Sidebar'
-import { Header, HeaderProps } from '../ui/Header'
-import { Footer, FooterProps } from '../ui/Footer'
+import * as Slot from '../components-ui/slots'
+import { Sidebar, SidebarProps } from '../components-ui/Sidebar'
+import { Header, HeaderProps } from '../components-ui/Header'
+import { Footer, FooterProps } from '../components-ui/Footer'
 import { DEFAULT_LAYOUT_CONFIG } from '../config/constants'
 
 
 export type AppLayoutProps = {
     config: LayoutConfig
     state?: LayoutState
-
     content?: SidebarProps['content'] & HeaderProps['content'] & FooterProps['content']
     children?: React.ReactNode
 }

@@ -4,7 +4,7 @@ import { useLayout } from "@/AppLayout/state/useLayout";
 import { 
     AppLayout as ServerAppLayout,
     type AppLayoutProps as ServerAppLayoutProps
-} from "./AppLayout.server";
+} from "../components-server/AppLayout";
 
 export type AppLayoutProps = ServerAppLayoutProps
 

@@ -2,7 +2,7 @@ import { cn } from "@coolui/styles"
 import { SectionContent, SectionOptions } from "./types"
 import { Typography } from "@coolui/typography"
 
-export const SectionWrapper = (props: { children: React.ReactNode } & Pick<SectionOptions, 'colorTheme' | 'spacing' | 'borders'>) => {
+export const SectionWrapper = (props: { children: React.ReactNode, className?: string } & Pick<SectionOptions, 'colorTheme' | 'spacing' | 'borders'>) => {
     const className = cn(
         props.colorTheme === 'primary' && 'bg-body text-typo-body',
         props.colorTheme === 'secondary' && 'bg-surface text-typo-body',
@@ -16,6 +16,8 @@ export const SectionWrapper = (props: { children: React.ReactNode } & Pick<Secti
         props.borders === "top" && "border-t border-border",
         props.borders === "bottom" && "border-b border-border",
         props.borders === "both" && "border-y border-border",
+
+        props.className
     )
     return <section className={className}>
         {props.children}
@@ -88,4 +90,11 @@ export const SectionFooter = (props: { children: React.ReactNode } & Pick<Sectio
         props.spacing === "huge" && "",
     )
     return <div className={className}>{props.children} </div>
+}
+
+
+export const SectionGroupWrapper = (props: { children?: React.ReactNode }) => {
+    return <div className="flex-1 flex flex-col">
+        {props.children}
+    </div>
 }

@@ -9,5 +9,5 @@ export { useLayout } from './AppLayout/state/useLayout'
 export { useTheme  } from './Theme/state/useTheme'
 
 // Client components
-export { AppLayout, type AppLayoutProps } from './AppLayout/components/AppLayout.client'
+export { AppLayout, type AppLayoutProps } from './AppLayout/components-client/AppLayout'
 export { ThemeDebug } from './Theme/components/ThemeDebug'

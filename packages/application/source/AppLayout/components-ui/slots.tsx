@@ -20,7 +20,9 @@ export const SidebarWrapper = (props: {
             // Full width on mobile
             "w-full tablet:w-64",
             // Fixed on mobile/tablet, Static on laptop
-            "fixed inset-y-0 left-0 top-(--cool-header-height) z-30 laptop:relative laptop:top-0",
+            "fixed inset-y-0 left-0 top-(--cool-header-height) z-30",
+            // Sticky on laptop
+            "laptop:sticky laptop:top-0",
             // Slide animation
             "transition-transform duration-300 ease-in-out",
             props.isOpen ? 'translate-x-0' : '-translate-x-full laptop:translate-x-0',
@@ -32,7 +34,13 @@ export const SidebarWrapper = (props: {
 }
 
 export const SidebarHeader = (props: { children: React.ReactNode }) => <Flex direction='column' className={cn("tablet:flex p-6 border-b border-border min-h-40")}>{props.children}</Flex>
-export const SidebarBody = (props: { children?: React.ReactNode }) => <Flex direction='column' className={cn("p-6 flex-1 overflow-auto",)}>{props.children}</Flex>
+export const SidebarBody = (props: { children?: React.ReactNode }) => <Flex direction='column' className={cn("p-6 flex-1 overflow-y-auto",)}>
+    {/* {props.children} */}
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore error, sapiente quas odio animi, tenetur harum facere quidem, eius consequatur ipsa amet voluptatem libero. Officia deleniti autem debitis tempore totam?
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore error, sapiente quas odio animi, tenetur harum facere quidem, eius consequatur ipsa amet voluptatem libero. Officia deleniti autem debitis tempore totam?
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore error, sapiente quas odio animi, tenetur harum facere quidem, eius consequatur ipsa amet voluptatem libero. Officia deleniti autem debitis tempore totam?
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore error, sapiente quas odio animi, tenetur harum facere quidem, eius consequatur ipsa amet voluptatem libero. Officia deleniti autem debitis tempore totam?
+    </Flex>
 export const SidebarFooter = (props: { children?: React.ReactNode }) => <Flex direction='column' className={cn("p-6 border-t border-border")}>{props.children}</Flex>
 
 
@@ -45,7 +53,7 @@ export const HeaderWrapper = (props: {
     return <header
         className={cn(
             "bg-(--cool-header-bg) text-(--cool-header-color)",
-            "border-b transition-colors duration-200", 
+            "border-b transition-colors duration-200",
             props.showBorder ? "border-border" : "border-transparent",
             props.isFixed ? "sticky top-0 z-30" : "",
         )}

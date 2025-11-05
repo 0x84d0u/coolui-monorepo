@@ -2,16 +2,20 @@
 // import { Typography } from "@coolui/typography";
 // import { Page, PageSection } from "@coolui/layout";
 
-import { Section } from "@coolui/application";
+import { Page, Section, SectionGroup, type PageConfig } from "@coolui/application";
 import { ThemeDebug } from "@coolui/application/client";
+
+const pageConfig: PageConfig = {
+  title: "Homepage",
+  description: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+
+  
+}
 
 export default function NextPage() {
 
-  return <div className="p-12">
+  return <Page config={pageConfig}>
 
-    <div className="bg-surface p-12">
-      <ThemeDebug />
-    </div>
 
     <Section>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
@@ -76,7 +80,7 @@ export default function NextPage() {
     <Section>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam animi ullam, ut at, incidunt necessitatibus nesciunt mollitia ex eligendi corporis laudantium iusto exercitationem explicabo totam aut quam, qui dolor.
     </Section>
-  </div>
+  </Page>
 
   // return <Page
   //   title="My page"

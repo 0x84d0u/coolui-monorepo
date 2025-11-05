@@ -1,8 +1,10 @@
-import * as Slot from '../ui/slots'
 import { Container } from '@coolui/core'
-import { SectionContent, SectionOptions } from '../ui/types'
+import { SectionContent, SectionOptions } from '../components-ui/types'
+import { SectionBody, SectionFooter, SectionHeader, SectionWrapper } from '../components-ui/section.slots'
 
-export type SectionProps = SectionOptions & SectionContent
+export type SectionProps = SectionOptions & SectionContent & {
+    className?: string
+}
 
 export const Section = ({
     spacing = 'comfortable',
@@ -20,30 +22,33 @@ export const Section = ({
     headerActions,
     footer,
     children,
+
+    className
 }: SectionProps) => {
-    return <Slot.SectionWrapper 
+    return <SectionWrapper
         colorTheme={colorTheme}
         spacing={spacing}
         borders={borders}
+        className={className}
     >
         <Container size={containerSize}>
-            <Slot.SectionHeader 
+            <SectionHeader
                 spacing={spacing}
                 headingSize={headingSize}
                 title={title}
                 subtitle={subtitle}
                 headerActions={headerActions}
             />
-            <Slot.SectionBody
+            <SectionBody
                 layout={layout}
             >
                 {children}
-            </Slot.SectionBody>
-            <Slot.SectionFooter 
+            </SectionBody>
+            <SectionFooter
                 spacing={spacing}
                 alignFooter={alignFooter}
                 children={footer}
             />
         </Container>
-    </Slot.SectionWrapper>
+    </SectionWrapper>
 }
