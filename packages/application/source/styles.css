@@ -1,0 +1,11 @@
+@import '../../styles//source/index.css';
+
+@theme {
+    --cool-header-bg: var(--color-body);
+    --cool-header-color: var(--color-typo-heading);
+    --cool-header-height: calc(var(--spacing) * 16);
+
+    --cool-sidebar-bg: var(--color-body);
+    --cool-sidebar-color: var(--color-typo-heading);
+    --cool-sidebar-height: calc(100svh - var(--cool-header-height));
+}

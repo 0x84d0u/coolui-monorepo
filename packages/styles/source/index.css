@@ -1,7 +1,12 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --transition-base: 0.25s;
+
+  /* Transitions */
+  --duration-*: initial;
+  --duration-base: 250ms;
+
 
   /* Breakpoints */
   --breakpoint-*: initial;
@@ -11,32 +16,36 @@
   --breakpoint-desktop: 80rem;
 
   /* Backgrounds */
-  --color-body: #ffffff;
-  --color-surface: #f9fafb;
-  --color-surface-2: #f3f4f6;
-  --color-border: #e5e7eb;
-  --color-ring: #2563eb33;
-  --color-subtle: #f9fafb;
-  --color-muted: #f3f4f6;
+  --color-body: oklch(1 0 0);
+  --color-surface: oklch(0.98 0.01 95);
+  --color-surface-2: oklch(0.95 0.015 95);
+  --color-overlay: oklch(0 0 0 / 60%);
+
+  /* Outilines */
+  --color-border: oklch(0.88 0.01 95);
+  --color-ring: oklch(0.78 0.12 260 / 0.2);
+  --color-subtle: oklch(0.98 0.01 95);
+  --color-muted: oklch(0.95 0.015 95);
 
   /* Accent & States */
-  --color-accent: #2563eb;
-  --color-success: #16a34a;
-  --color-info: #0284c7;
-  --color-destructive: #dc2626;
-  --color-warning: #f59e0b;
+  --color-accent: oklch(0.65 0.2 260);
+  --color-success: oklch(0.7 0.2 150);
+  --color-info: oklch(0.7 0.18 230);
+  --color-destructive: oklch(0.6 0.22 25);
+  --color-warning: oklch(0.85 0.15 80);
 
   /* Typography Colors */
-  --color-typo-body: #1a1a1a;
-  --color-typo-surface: #111827;
-  --color-typo-heading: #1a1a1a;
-  --color-typo-subtle: #6b7280;
-  --color-typo-accent: #1a1a1a;
-  --color-typo-muted: #9ca3af;
-  --color-typo-success: #6b7280;
-  --color-typo-info: #6b7280;
-  --color-typo-destructive: #6b7280;
-  --color-typo-warning: #6b7280;
+  --color-typo-body: oklch(0.15 0.02 270);
+  --color-typo-heading: oklch(0.15 0.02 270);
+  --color-typo-surface: oklch(0.12 0.02 270);
+  --color-typo-subtle: oklch(0.5 0.03 270);
+  --color-typo-accent: oklch(0.15 0.02 270);
+  --color-typo-muted: oklch(0.65 0.02 270);
+
+  --color-typo-success: oklch(0.45 0.05 150);
+  --color-typo-info: oklch(0.45 0.05 230);
+  --color-typo-destructive: oklch(0.45 0.05 25);
+  --color-typo-warning: oklch(0.45 0.05 80);
 
   /* Fonts */
   --font-body: "Satoshi", system-ui, sans-serif;
@@ -80,33 +89,36 @@
 
 /* Dark mode */
 .dark {
-  --color-body: #0f172a;
-  --color-surface: #1e293b;
-  --color-surface-2: #334155;
-  --color-border: #475569;
-  --color-ring: #3b82f633;
-  --color-accent: #3b82f6;
-  --color-subtle: #1a1a1a;
-  --color-muted: #334155;
-  --color-success: #22c55e;
-  --color-info: #0ea5e9;
-  --color-destructive: #ef4444;
-  --color-warning: #fbbf24;
-  --color-typo-body: #f1f5f9;
-  --color-typo-surface: #f8fafc;
-  --color-typo-heading: #f1f5f9;
-  --color-typo-subtle: #cbd5e1;
-  --color-typo-accent: #f1f5f9;
-  --color-typo-muted: #94a3b8;
-  --color-typo-success: #94a3b8;
-  --color-typo-info: #94a3b8;
-  --color-typo-destructive: #94a3b8;
-  --color-typo-warning: #94a3b8;
+  --color-body: oklch(0.13 0.02 270);
+  --color-surface: oklch(0.18 0.03 270);
+  --color-surface-2: oklch(0.25 0.03 270);
+
+  --color-border: oklch(0.4 0.02 270);
+  --color-ring: oklch(0.65 0.15 260 / 0.25);
+
+  --color-accent: oklch(0.65 0.2 260);
+  --color-subtle: oklch(0.13 0.02 270);
+  --color-muted: oklch(0.25 0.03 270);
+  --color-success: oklch(0.65 0.18 150);
+  --color-info: oklch(0.65 0.18 230);
+  --color-destructive: oklch(0.65 0.2 25);
+  --color-warning: oklch(0.8 0.15 80);
+
+  --color-typo-body: oklch(0.96 0.02 270);
+  --color-typo-surface: oklch(0.98 0.02 270);
+  --color-typo-heading: oklch(0.96 0.02 270);
+  --color-typo-subtle: oklch(0.75 0.03 270);
+  --color-typo-accent: oklch(0.96 0.02 270);
+  --color-typo-muted: oklch(0.6 0.02 270);
+  --color-typo-success: oklch(0.7 0.05 150);
+  --color-typo-info: oklch(0.7 0.05 230);
+  --color-typo-destructive: oklch(0.7 0.05 25);
+  --color-typo-warning: oklch(0.7 0.05 80);
 }
 
 * {
   transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: var(--transition-base);
+  transition-duration: var(--duration-base);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
