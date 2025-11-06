@@ -1,17 +1,2 @@
-
-
-
-export { Section } from './components/Section'
-export { SectionGroup } from './components/SectionGroup'
-
-export type {
-    SectionProps,
-    SectionGroupProps,
-} from './components/types'
-
-export type {
-    Config as SectionConfig,
-    Content as SectionContent,
-    GroupConfig as SectionGroupConfig,
-    GroupContent as SectionGroupContent
-} from './lib/types'
+export { Section, type SectionProps } from './components-server/Section'
+export { SectionGroup, type SectionGroupProps } from './components-server/SectionGroup'

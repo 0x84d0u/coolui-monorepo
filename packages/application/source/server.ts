@@ -1,5 +1,4 @@
-export * from './AppLayout/index.server'
+export * from './Template/index.server'
 export * from './Page/index.server'
-export * from './PageToc/index.server'
 export * from './Section/index.server'
 export * from './Theme/index.server'

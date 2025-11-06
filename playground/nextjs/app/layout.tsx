@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { AppLayout, AppLayoutProvider, ThemeProvider } from "@coolui/application/client";
+import { Template, ThemeProvider } from "@coolui/application/client";
 import { NextThemeScript } from "@coolui/application";
 import { LAYOUT_CONFIG, THEME_CONFIG } from "./config";
 
@@ -33,17 +33,18 @@ export default function NextRootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <NextThemeScript config={THEME_CONFIG}/>
+        <NextThemeScript config={THEME_CONFIG} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} `}
       >
+
         <ThemeProvider config={THEME_CONFIG}>
-          <AppLayoutProvider>
-            <AppLayout {...LAYOUT_CONFIG}>
-              {children}
-            </AppLayout>
-          </AppLayoutProvider>
+          <Template
+            config={LAYOUT_CONFIG}
+          >
+            {children}
+          </Template>
         </ThemeProvider>
       </body>
     </html>

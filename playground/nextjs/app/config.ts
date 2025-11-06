@@ -1,4 +1,4 @@
-import { AppLayoutConfig, ThemeConfig } from "@coolui/application";
+import { TemplateConfig, ThemeConfig } from "@coolui/application";
 
 export const THEME_CONFIG: ThemeConfig = {
     defaultMode: 'dark',
@@ -8,7 +8,7 @@ export const THEME_CONFIG: ThemeConfig = {
     themes: [],
 }
 
-export const LAYOUT_CONFIG : AppLayoutConfig = {
+export const LAYOUT_CONFIG : TemplateConfig = {
     headerEnabled: true,
     headerFixed: true,
     headerThemeToggleEnabled: true,

@@ -45,7 +45,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@coolui/styles": "workspace:*"
+    "@coolui/styles": "workspace:*",
+    "@coolui/typography": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
