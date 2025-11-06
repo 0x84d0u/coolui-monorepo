@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useTemplate } from "@/client"
+import { useTemplate } from "../../Template/lib/useTemplate"
 import { Nav as ServerNav, NavProps as ServerNavProps } from "../components-server/Nav"
 
 export type NavProps = Pick<ServerNavProps, "items">
@@ -65,3 +65,5 @@ export const Nav = ({ items }: NavProps) => {
 
   return <ServerNav items={items} activeId={activeId} />
 }
+
+Nav.displayName = "Nav"

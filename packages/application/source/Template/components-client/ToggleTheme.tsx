@@ -1,6 +1,6 @@
 "use client"
 
-import { useTheme } from "@/client"
+import { useTheme } from "../../Theme/utils/useTheme"
 import { HeaderAction } from "../components-ui/HeaderAction"
 
 export const ToggleTheme = () => {
@@ -50,3 +50,5 @@ export const ToggleTheme = () => {
     />
   )
 }
+
+ToggleTheme.displayName = "ToggleTheme"

@@ -1,10 +1,8 @@
 import { cn } from "@coolui/styles"
-// import React from "react"
 import { TocItem } from "../lib/types"
 
 export type NavProps = {
     items?: TocItem[]
-    // onItemClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
     activeId?: string | null
 }
 

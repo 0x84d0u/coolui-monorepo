@@ -1,25 +1,30 @@
-import { Section } from "../../Section/components-server/Section";
-import { cn } from "@coolui/styles";
-import React from "react";
+import React from "react"
+import { cn } from "@coolui/styles"
+import { Section } from "../../Section/components-server/Section"
+
+export type SidebarProps = {
+    children?: React.ReactNode
+    position?: 'left' | 'right'
+}
 
 export const Sidebar = ({
     children,
-    position
-}: {
-    children?: React.ReactNode
-    position?: 'left' | 'right'
-}) => {
-
-    if (!children) return null;
-    const isLeft = position === 'left'
+    position = 'left'
+}: SidebarProps) => {
+    if (!children) return null
+    
     const className = cn(
-        !isLeft && 'order-1',
         "w-full laptop:w-64",
-        "sticky top-0"
+        "sticky top-0",
+        // Order for flexbox layout
+        position === 'right' && 'laptop:order-2'
     )
-    return <Section className={className}>
-        {children}
-    </Section>
-
-
+    
+    return (
+        <Section className={className}>
+            {children}
+        </Section>
+    )
 }
+
+Sidebar.displayName = "Sidebar"

@@ -1,8 +1,7 @@
+import React from "react"
 import { cn } from "@coolui/styles"
 import { Config } from "../lib/types"
-import React from "react"
 import { Typography } from "@coolui/typography"
-
 
 export type LayoutProps = Pick<Config, 'colorTheme' | 'spacing' | 'borders' | 'headingSize' | 'layout' | 'alignFooter'> & {
     id?: string
@@ -20,42 +19,43 @@ export const Layout = ({
     className,
     children,
 
-    colorTheme,
-    spacing,
+    colorTheme = 'primary',
+    spacing = 'comfortable',
     borders,
-    headingSize,
-    layout,
-    alignFooter,
+    headingSize = 'section',
+    layout = 'stacked',
+    alignFooter = 'start',
 
     title,
     description,
     headerExtra,
     footer,
-
-
 }: LayoutProps) => {
-    return <Wrapper
-        id={id}
-        className={className}
-        colorTheme={colorTheme}
-        spacing={spacing}
-        borders={borders}
-    >
-        <Header
-            heading={title || description && <>
-                <Title content={title} size={headingSize} />
-                <Description content={description} size={headingSize} />
-            </>}
-            extra={headerExtra}
-        />
-        <Body layout={layout} spacing={spacing}>
-            {children}
-        </Body>
-        <Footer alignFooter={alignFooter} spacing={spacing}>
-            {footer}
-        </Footer>
-    </Wrapper>
-
+    return (
+        <Wrapper
+            id={id}
+            className={className}
+            colorTheme={colorTheme}
+            spacing={spacing}
+            borders={borders}
+        >
+            <Header
+                heading={(title || description) ? (
+                    <>
+                        <Title content={title} size={headingSize} />
+                        <Description content={description} size={headingSize} />
+                    </>
+                ) : undefined}
+                extra={headerExtra}
+            />
+            <Body layout={layout} spacing={spacing}>
+                {children}
+            </Body>
+            <Footer alignFooter={alignFooter} spacing={spacing}>
+                {footer}
+            </Footer>
+        </Wrapper>
+    )
 }
 
 const Wrapper = ({
@@ -90,9 +90,11 @@ const Wrapper = ({
 
         className
     )
-    return <section className={cls} id={id}>
-        {children}
-    </section>
+    return (
+        <section className={cls} id={id}>
+            {children}
+        </section>
+    )
 }
 
 const Title = ({
@@ -102,29 +104,30 @@ const Title = ({
     size?: Config['headingSize'],
     content?: string
 }) => {
-    if (!content) return null;
+    if (!content) return null
+    
     switch (size) {
-        case "display": return <Typography.Display>{content}</Typography.Display>
-        case "page": return <Typography.H1>{content}</Typography.H1>
-        case "section": return <Typography.H2>{content}</Typography.H2>
-        default: return null
+        case "display": 
+            return <Typography.Display>{content}</Typography.Display>
+        case "page": 
+            return <Typography.H1>{content}</Typography.H1>
+        case "section": 
+            return <Typography.H2>{content}</Typography.H2>
+        default: 
+            return null
     }
 }
 
 const Description = ({
-    size,
+    // size,
     content
 }: {
     size?: Config['headingSize'],
     content?: string
 }) => {
-    if (!content) return null;
-    switch (size) {
-        case "display": return <Typography.Body>{content}</Typography.Body>
-        case "page": return <Typography.Body>{content}</Typography.Body>
-        case "section": return <Typography.Body>{content}</Typography.Body>
-        default: return null
-    }
+    if (!content) return null
+    
+    return <Typography.Body>{content}</Typography.Body>
 }
 
 const Header = ({
@@ -134,10 +137,14 @@ const Header = ({
     heading?: React.ReactNode
     extra?: React.ReactNode
 }) => {
-    return <div className="flex justify-between">
-        {heading && <div className="flex-1">{heading}</div>}
-        {extra}
-    </div>
+    if (!heading && !extra) return null
+    
+    return (
+        <div className="flex justify-between items-start">
+            {heading && <div className="flex-1 space-y-2">{heading}</div>}
+            {extra}
+        </div>
+    )
 }
 
 const Body = ({
@@ -149,7 +156,8 @@ const Body = ({
     layout?: Config['layout']
     spacing?: Config['spacing']
 }) => {
-    if (!children) return null;
+    if (!children) return null
+    
     const className = cn(
         layout === "stacked" && "flex flex-col",
         layout === "grid" && "grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3",
@@ -161,9 +169,8 @@ const Body = ({
         spacing === 'large' && 'gap-24',
         spacing === 'huge' && 'gap-48',
     )
+    
     return <div className={className}>{children}</div>
-
-
 }
 
 const Footer = ({
@@ -175,18 +182,20 @@ const Footer = ({
     alignFooter?: Config['alignFooter']
     spacing?: Config['spacing']
 }) => {
-    if (!children) return null;
+    if (!children) return null
+    
     const className = cn(
         "flex items-center",
         alignFooter === "start" && "justify-start",
         alignFooter === "center" && "justify-center",
         alignFooter === "end" && "justify-end",
         alignFooter === "between" && "justify-between",
+        
         spacing === "compact" && "mt-4",
         spacing === "comfortable" && "mt-8",
         spacing === "large" && "mt-12",
-        spacing === "huge" && "",
+        spacing === "huge" && "mt-16",
     )
-    return <div className={className}>{children} </div>
-
+    
+    return <div className={className}>{children}</div>
 }

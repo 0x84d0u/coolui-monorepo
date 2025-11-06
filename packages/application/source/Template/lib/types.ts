@@ -1,6 +1,6 @@
 
 export type State = {
-    config?: Config
+    // config?: Config
 
     isHeaderScrolled: boolean
 

@@ -3,7 +3,7 @@
 @theme {
     --cool-header-bg: var(--color-body);
     --cool-header-color: var(--color-typo-heading);
-    --cool-header-height: calc(var(--spacing) * 16);
+    --cool-header-height: 4rem; /* 64px */
 
     --cool-sidebar-bg: var(--color-body);
     --cool-sidebar-color: var(--color-typo-heading);

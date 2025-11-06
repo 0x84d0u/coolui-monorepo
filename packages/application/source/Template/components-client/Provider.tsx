@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 import { Config, State } from "../lib/types";
 import { Context } from "../lib/Context";
 
@@ -18,7 +18,7 @@ export const Provider = ({ children, config }: ProviderProps) => {
         const onScroll = () => setHeaderScrolled(window.scrollY > 10);
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
-    }, []); // ← Only run once on mount
+    }, []);
 
     // Handle escape key to close sidebar
     useEffect(() => {
@@ -43,14 +43,20 @@ export const Provider = ({ children, config }: ProviderProps) => {
         };
     }, [isSidebarOpen]);
 
-    const appCtx: State = {
+    // ✅ Memoize functions
+    const closeSidebar = useCallback(() => setSidebarOpen(false), []);
+    const openSidebar = useCallback(() => setSidebarOpen(true), []);
+    const toggleSidebar = useCallback(() => setSidebarOpen(prev => !prev), []);
+
+    // ✅ Memoize context value - THIS IS CRITICAL!
+    const appCtx: State = useMemo(() => ({
         config,
-        isHeaderScrolled: isHeaderScrolled,
-        isSidebarOpen: isSidebarOpen,
-        closeSidebar: () => setSidebarOpen(false),
-        openSidebar: () => setSidebarOpen(true),
-        toggleSidebar: () => setSidebarOpen(prev => !prev),
-    }
+        isHeaderScrolled,
+        isSidebarOpen,
+        closeSidebar,
+        openSidebar,
+        toggleSidebar,
+    }), [config, isHeaderScrolled, isSidebarOpen, closeSidebar, openSidebar, toggleSidebar]);
 
     return <Context.Provider value={appCtx}>
         {children}
