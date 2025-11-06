@@ -6,6 +6,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Template, ThemeProvider } from "@coolui/application/client";
 import { NextThemeScript } from "@coolui/application";
 import { LAYOUT_CONFIG, THEME_CONFIG } from "./config";
+import { MainNavigation } from "@/components/MainNavigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function NextRootLayout({
         <ThemeProvider config={THEME_CONFIG}>
           <Template
             config={LAYOUT_CONFIG}
+            sidebarBody={<MainNavigation />}
           >
             {children}
           </Template>

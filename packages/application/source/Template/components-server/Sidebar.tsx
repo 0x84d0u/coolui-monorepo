@@ -25,7 +25,7 @@ export const Sidebar = ({
     return <Layout
         isOpen={isOpen}
         header={<>
-            <Logo {...config} />
+            <Logo {...config} className="hidden laptop:flex"/>
             {header}
         </>}
         body={body}

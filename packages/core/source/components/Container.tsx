@@ -1,13 +1,9 @@
 import React from "react"
-import { cn, cva, styleVariant, VariantProps } from "@coolui/styles"
+import { cn } from "@coolui/styles"
 
-const variants = cva("", {
-    variants: {
-        size: styleVariant.containerSize
-    },
-})
-
-export type ContainerProps = VariantProps<typeof variants> & {
+export type ContainerSize = 'sm' | 'md' | 'lg' | 'xl' | 'full'
+export type ContainerProps = {
+    size?: ContainerSize
     children?: React.ReactNode
     className?: string
 }
@@ -15,11 +11,17 @@ export const Container = ({
     size = 'lg',
     className,
     children
-}: ContainerProps) => <div className={cn(
-    "mx-auto w-full",
-    "px-4 tablet:px-6 laptop:px-8",
-    variants({ size }),
-    className
-)}>
+}: ContainerProps) => {
+    return <div className={cn(
+        "mx-auto w-full",
+        "px-4 tablet:px-6 laptop:px-8",
+        size === 'sm' && 'max-w-scree-sm',
+        size === 'md' && 'max-w-scree-md',
+        size === 'lg' && 'max-w-scree-lg',
+        size === 'xl' && 'max-w-scree-xl',
+        size === 'full' && 'max-w-none',
+        className
+    )}>
         {children}
     </div>
+}

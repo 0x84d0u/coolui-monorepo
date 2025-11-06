@@ -2,8 +2,9 @@ import React from "react"
 import { cn } from "@coolui/styles"
 import { Config } from "../lib/types"
 import { Typography } from "@coolui/typography"
+import { Container } from "@coolui/core"
 
-export type LayoutProps = Pick<Config, 'colorTheme' | 'spacing' | 'borders' | 'headingSize' | 'layout' | 'alignFooter'> & {
+export type LayoutProps = Config & {
     id?: string
     className?: string
     children?: React.ReactNode
@@ -22,6 +23,7 @@ export const Layout = ({
     colorTheme = 'primary',
     spacing = 'comfortable',
     borders,
+    containerSize = 'lg',
     headingSize = 'section',
     layout = 'stacked',
     alignFooter = 'start',
@@ -39,21 +41,23 @@ export const Layout = ({
             spacing={spacing}
             borders={borders}
         >
-            <Header
-                heading={(title || description) ? (
-                    <>
-                        <Title content={title} size={headingSize} />
-                        <Description content={description} size={headingSize} />
-                    </>
-                ) : undefined}
-                extra={headerExtra}
-            />
-            <Body layout={layout} spacing={spacing}>
-                {children}
-            </Body>
-            <Footer alignFooter={alignFooter} spacing={spacing}>
-                {footer}
-            </Footer>
+            <Container size={containerSize}>
+                <Header
+                    heading={(title || description) ? (
+                        <>
+                            <Title content={title} size={headingSize} />
+                            <Description content={description} size={headingSize} />
+                        </>
+                    ) : undefined}
+                    extra={headerExtra}
+                />
+                <Body layout={layout} spacing={spacing}>
+                    {children}
+                </Body>
+                <Footer alignFooter={alignFooter} spacing={spacing}>
+                    {footer}
+                </Footer>
+            </Container>
         </Wrapper>
     )
 }
@@ -105,15 +109,15 @@ const Title = ({
     content?: string
 }) => {
     if (!content) return null
-    
+
     switch (size) {
-        case "display": 
+        case "display":
             return <Typography.Display>{content}</Typography.Display>
-        case "page": 
+        case "page":
             return <Typography.H1>{content}</Typography.H1>
-        case "section": 
+        case "section":
             return <Typography.H2>{content}</Typography.H2>
-        default: 
+        default:
             return null
     }
 }
@@ -126,7 +130,7 @@ const Description = ({
     content?: string
 }) => {
     if (!content) return null
-    
+
     return <Typography.Body>{content}</Typography.Body>
 }
 
@@ -138,7 +142,7 @@ const Header = ({
     extra?: React.ReactNode
 }) => {
     if (!heading && !extra) return null
-    
+
     return (
         <div className="flex justify-between items-start">
             {heading && <div className="flex-1 space-y-2">{heading}</div>}
@@ -157,7 +161,7 @@ const Body = ({
     spacing?: Config['spacing']
 }) => {
     if (!children) return null
-    
+
     const className = cn(
         layout === "stacked" && "flex flex-col",
         layout === "grid" && "grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3",
@@ -169,7 +173,7 @@ const Body = ({
         spacing === 'large' && 'gap-24',
         spacing === 'huge' && 'gap-48',
     )
-    
+
     return <div className={className}>{children}</div>
 }
 
@@ -183,19 +187,19 @@ const Footer = ({
     spacing?: Config['spacing']
 }) => {
     if (!children) return null
-    
+
     const className = cn(
         "flex items-center",
         alignFooter === "start" && "justify-start",
         alignFooter === "center" && "justify-center",
         alignFooter === "end" && "justify-end",
         alignFooter === "between" && "justify-between",
-        
+
         spacing === "compact" && "mt-4",
         spacing === "comfortable" && "mt-8",
         spacing === "large" && "mt-12",
         spacing === "huge" && "mt-16",
     )
-    
+
     return <div className={className}>{children}</div>
 }
