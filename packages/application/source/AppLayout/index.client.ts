@@ -2,7 +2,7 @@
 
 export { AppLayout } from './components-client/AppLayout'
 export { AppLayoutProvider } from './components-client/AppLayoutProvider'
-export { useAppLayout } from './lib/context-hooks'
+export { useAppLayout } from './lib/useAppLayout'
 
 export type {
     AppLayoutProps,

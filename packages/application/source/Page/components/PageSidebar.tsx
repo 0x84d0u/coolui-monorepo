@@ -1,10 +1,25 @@
-import { Wrapper } from "../lib/sidebar.slots";
+import { cn } from "@coolui/styles";
 import { PageSidebarProps } from "./types";
+import { Section } from "@/server";
 
-export const PageSidebar = ({ config, content }: PageSidebarProps) => {
-    return <Wrapper
-        enabled={config?.enableSidebar}
-        position={config?.sidebarPosition || 'right'}
-        children={content?.sidebar}
-    />
+export const PageSidebar = ({
+    enableSidebar,
+    sidebar,
+    sidebarPosition,
+    toc,
+
+}: PageSidebarProps) => {
+    
+    if (!enableSidebar && !toc) return null;
+    const isLeft = sidebarPosition === 'left'
+    const className = cn(
+        !isLeft && 'order-1',
+        "w-full laptop:w-64",
+        "sticky top-0"
+    )
+    return <Section className={className}>
+        {sidebar}
+    </Section>
+
+
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import { HeaderAction } from "../components/HeaderAction"
-import { useAppLayout } from "../lib/context-hooks"
+import { useAppLayout } from "../lib/useAppLayout"
 import type { AppSidebarToggleProps } from "./types"
 
 export const AppSidebarToggle = ({

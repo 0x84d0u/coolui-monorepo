@@ -1,10 +1,10 @@
-import { Config, Content, GroupConfig, GroupContent } from "../lib/types"
+import { Config, Content, GroupConfig, GroupContent, JsxProps } from "../lib/types"
 
-export type SectionProps = Config & Omit<Content, 'content'> & {
-    children?: Content['content']
-    className?: string
-}
+export type SectionProps =
+    Config &
+    Omit<Content, 'content'> &
+    Pick<JsxProps, 'className' | 'children' | 'id'>
 
-export type SectionGroupProps =  GroupConfig & {
+export type SectionGroupProps = GroupConfig & {
     children?: GroupContent['sections']
 }

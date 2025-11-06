@@ -17,6 +17,7 @@ export const Section = ({
     headerActions,
     footer,
     
+    id,
     children,
     className,
 }: SectionProps) => {
@@ -25,6 +26,7 @@ export const Section = ({
         spacing={spacing}
         borders={borders}
         className={className}
+        id={id}
     >
         <Container size={containerSize}>
             <Header

@@ -1,8 +1,12 @@
+import React from "react"
 import { cn } from "@coolui/styles"
 import { Typography } from "@coolui/typography"
-import { Content, Config } from "./types"
+import { Content, Config, JsxProps } from "./types"
 
-export const Wrapper = (props: { children: React.ReactNode, className?: string } & Pick<Config, 'colorTheme' | 'spacing' | 'borders'>) => {
+
+type WrapperProps = Pick<Config, 'colorTheme' | 'spacing' | 'borders'> & Pick<JsxProps, 'id' | 'children' | 'className'>
+
+export const Wrapper = (props: WrapperProps) => {
     const className = cn(
         props.colorTheme === 'primary' && 'bg-body text-typo-body',
         props.colorTheme === 'secondary' && 'bg-surface text-typo-body',
@@ -19,7 +23,7 @@ export const Wrapper = (props: { children: React.ReactNode, className?: string }
 
         props.className
     )
-    return <section className={className}>
+    return <section className={className} id={props.id}>
         {props.children}
     </section>
 }

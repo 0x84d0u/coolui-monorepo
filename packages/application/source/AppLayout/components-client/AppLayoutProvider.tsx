@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { State } from "../lib/types";
 import { AppLayoutProviderProps } from "./types";
-import { AppLayoutContext } from "../lib/context";
+import { AppLayoutContext } from "../lib/AppLayoutContext";
 
 export const AppLayoutProvider = ({ children }: AppLayoutProviderProps) => {
     const [isHeaderScrolled, setHeaderScrolled] = useState<boolean>(false)
