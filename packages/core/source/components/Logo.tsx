@@ -1,4 +1,4 @@
-import { Typography } from '@coolui/typography'
+import { H3 } from "../components/Typography"
 
 export type LogoProps = {
     /**
@@ -44,9 +44,9 @@ export const Logo = ({
                 </div>
             )}
             {name && (
-                <Typography.H3 className="font-semibold text-lg">
+                <H3 className="font-semibold text-lg">
                     {name}
-                </Typography.H3>
+                </H3>
             )}
         </div>
     )

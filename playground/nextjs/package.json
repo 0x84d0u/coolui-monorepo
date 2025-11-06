@@ -12,10 +12,9 @@
   },
   "dependencies": {
     "@coolui/styles": "workspace:*",
-    "@coolui/application": "workspace:*",
     "@coolui/core": "workspace:*",
-    "@coolui/theme": "workspace:*",
     "@coolui/typography": "workspace:*",
+    "@coolui/application": "workspace:*",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "next": "16.0.1"

@@ -4,7 +4,6 @@
     { "path": "./packages/styles" },
     { "path": "./packages/core" },
     { "path": "./packages/application" },
-    { "path": "./packages/theme" },
     { "path": "./packages/typography" },
     { "path": "./playground/nextjs" }
   ]

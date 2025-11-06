@@ -23,8 +23,6 @@ export const metadata: Metadata = {
 };
 
 
-
-
 export default function NextRootLayout({
   children,
 }: Readonly<{

@@ -69,9 +69,6 @@ importers:
       '@coolui/styles':
         specifier: workspace:*
         version: link:../styles
-      '@coolui/typography':
-        specifier: workspace:*
-        version: link:../typography
     devDependencies:
       '@types/node':
         specifier: ^22.0.0
@@ -174,9 +171,6 @@ importers:
       '@coolui/styles':
         specifier: workspace:*
         version: link:../../packages/styles
-      '@coolui/theme':
-        specifier: workspace:*
-        version: link:../../packages/theme
       '@coolui/typography':
         specifier: workspace:*
         version: link:../../packages/typography
