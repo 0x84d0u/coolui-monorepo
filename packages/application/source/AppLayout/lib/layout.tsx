@@ -6,50 +6,218 @@ import {
 } from '@coolui/core';
 import { cn } from '@coolui/styles';
 
-const Root = (props: SlotProps) => <Slot {...mergeSlots({ className: "relative flex min-h-svh h-full", }, props)} />;
-const Content = (props: SlotProps) => <Slot {...mergeSlots({ className: "min-h-svh flex-1 flex flex-col", }, props)} />;
-const Main = (props: SlotProps<'main'>) => <Slot as='main' {...mergeSlots({ className: "flex-1 overflow-y-auto", }, props)} />;
+// ============================================================================
+// Root & Main Structure
+// ============================================================================
 
-
-const Footer = (props: SlotProps<'footer'>) => <Slot as='footer' {...mergeSlots({ }, props)} />;
-
-const Overlay = Slot
-const SidebarWrapper = (props: SlotProps<'aside'>) => <Slot as='aside' {...mergeSlots({
+const Root = (props: SlotProps) => <Slot {...mergeSlots({ 
     className: cn(
-        "bg-(--cool-sidebar-bg) text-(--cool-sidebar-color)",
-        "border-r border-border",
-        "flex flex-col",
-        // Full height on laptop
-        "h-(--cool-sidebar-height) min-h-(--cool-sidebar-height) laptop:h-svh laptop:min-h-svh",
-        // Full width on mobile
-        "w-full tablet:w-64",
-        // Fixed on mobile/tablet, Static on laptop
-        "fixed inset-y-0 left-0 top-(--cool-header-height) z-30",
-        "laptop:shrink-0",
-        // Sticky on laptop
-        "laptop:sticky laptop:top-0",
-        // Slide animation
-        "transition-transform duration-300 ease-in-out",
-    )
-}, props)} />;
-
-const HeaderWrapper = (props: SlotProps<'header'>) => <Slot as='header' {...mergeSlots({
-    className: cn(
-        "bg-(--cool-header-bg) text-(--cool-header-color)",
-        "border-b transition-colors duration-200",
+        "relative flex min-h-svh",
+        // Smooth theme transitions
+        "transition-colors duration-200",
+        // Print optimization
+        "print:block print:min-h-0",
     ),
 }, props)} />;
 
-const HeaderToolbar = (props: SlotProps) => <Slot {...mergeSlots({ className: "flex items-center gap-3", }, props)} />;
-const HeaderLogo = (props: SlotProps) => <Slot {...mergeSlots({ className: "flex items-center justify-self-center", }, props)} />;
-const HeaderActions = (props: SlotProps) => <Slot {...mergeSlots({ className: "flex items-center justify-end gap-2", }, props)} />;
+const Content = (props: SlotProps) => <Slot {...mergeSlots({ 
+    className: cn(
+        "min-h-svh flex-1 flex flex-col",
+        // Ensure content takes remaining space
+        "w-full",
+    ),
+}, props)} />;
 
-const SidebarLogo = Slot
-const SidebarHeader = Slot
-const SidebarToolbar = Slot
-const SidebarNavigation = Slot
-const SidebarFooter = Slot
+const Main = (props: SlotProps<'main'>) => <Slot as='main' {...mergeSlots({ 
+    className: cn(
+        // Flex grow and scroll
+        "flex-1",
+        // Better scroll behavior
+        "overflow-y-auto overflow-x-hidden",
+        // Smooth scroll on supported browsers
+        "scroll-smooth",
+        // Focus outline for accessibility
+        "focus-visible:outline-none",
+    ),
+}, props)} />;
 
+const Footer = (props: SlotProps<'footer'>) => <Slot as='footer' {...mergeSlots({ 
+    className: cn(
+        "bg-(--cool-footer-bg) text-(--cool-footer-color)",
+        "border-t border-border",
+        // Prevent shrinking
+        "shrink-0",
+        // Print hide
+        "print:hidden",
+    ),
+}, props)} />;
+
+// ============================================================================
+// Overlay
+// ============================================================================
+
+const Overlay = (props: SlotProps) => <Slot {...mergeSlots({ 
+    className: cn(
+        // Positioning
+        "fixed inset-0 z-20",
+        // Styling
+        // "bg-white dark:bg-black backdrop-blur-sm",
+        // Animation
+        "transition-opacity duration-300",
+        // Hide on laptop and up
+        "laptop:hidden",
+        // Print hide
+        "print:hidden",
+    ),
+}, props)} />;
+
+// ============================================================================
+// Sidebar
+// ============================================================================
+
+const SidebarWrapper = (props: SlotProps<'aside'>) => <Slot as='aside' {...mergeSlots({
+    className: cn(
+        // Theme colors
+        "bg-(--cool-sidebar-bg) text-(--cool-sidebar-color)",
+        // Border
+        "border-r border-border",
+        // Layout
+        "flex flex-col",
+        
+        // Height management
+        // Mobile/Tablet: Full viewport height minus header
+        "h-[calc(100svh-var(--cool-header-height))] min-h-[calc(100svh-var(--cool-header-height))]",
+        // Laptop+: Full screen height
+        "laptop:h-svh laptop:min-h-svh",
+        
+        // Width
+        "w-[280px] mobile:w-[320px] tablet:w-[280px]",
+        
+        // Positioning
+        // Mobile/Tablet: Fixed overlay
+        "fixed inset-y-0 left-0 top-(--cool-header-height) z-30",
+        // Laptop+: Static in flow, with sticky positioning
+        "laptop:static laptop:sticky laptop:top-0 laptop:shrink-0",
+        
+        // Slide animation
+        "transition-transform duration-300 ease-out",
+        
+        // Shadow on mobile when open
+        "shadow-2xl laptop:shadow-none",
+        
+        // Print hide
+        "print:hidden",
+        
+        // Focus management
+        "focus-visible:outline-none",
+        
+        // Scrollable content
+        "overflow-y-auto overflow-x-hidden",
+        
+        // Smooth scroll
+        "scroll-smooth",
+    )
+}, props)} />;
+
+const SidebarLogo = (props: SlotProps) => <Slot {...mergeSlots({
+    className: cn(
+        "shrink-0",
+        "px-6 py-4",
+        "border-b border-border",
+    ),
+}, props)} />;
+
+const SidebarHeader = (props: SlotProps) => <Slot {...mergeSlots({
+    className: cn(
+        "shrink-0",
+        "px-6 py-4",
+        "border-b border-border",
+    ),
+}, props)} />;
+
+const SidebarToolbar = (props: SlotProps) => <Slot {...mergeSlots({
+    className: cn(
+        "shrink-0",
+        "px-4 py-3",
+    ),
+}, props)} />;
+
+const SidebarNavigation = (props: SlotProps) => <Slot {...mergeSlots({
+    className: cn(
+        // Grow to take available space
+        "flex-1",
+        "overflow-y-auto overflow-x-hidden",
+        // Padding
+        "px-3 py-4",
+        // Custom scrollbar
+        "scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700",
+    ),
+}, props)} />;
+
+const SidebarFooter = (props: SlotProps) => <Slot {...mergeSlots({
+    className: cn(
+        "shrink-0",
+        "px-6 py-4",
+        "border-t border-border",
+        "mt-auto", // Push to bottom
+    ),
+}, props)} />;
+
+// ============================================================================
+// Header
+// ============================================================================
+
+const HeaderWrapper = (props: SlotProps<'header'>) => <Slot as='header' {...mergeSlots({
+    className: cn(
+        // Theme colors
+        "bg-(--cool-header-bg) text-(--cool-header-color)",
+        // Border with smooth transition
+        "border-b transition-colors duration-200",
+        // Prevent shrinking
+        "shrink-0",
+        // Print modifications
+        "print:static print:border-b-2",
+    ),
+}, props)} />;
+
+const HeaderContainer = (props: SlotProps) => <Container {...mergeSlots({
+    className: cn(
+        // Grid layout
+        "grid grid-cols-[1fr_auto_1fr] items-center gap-4",
+        // Height
+        "h-(--cool-header-height) min-h-(--cool-header-height)",
+        // Responsive padding
+        "px-4 mobile:px-6",
+    ),
+}, props)} />;
+
+const HeaderToolbar = (props: SlotProps) => <Slot {...mergeSlots({ 
+    className: cn(
+        "flex items-center gap-3",
+        // Justify start
+        "justify-start",
+    ),
+}, props)} />;
+
+const HeaderLogo = (props: SlotProps) => <Slot {...mergeSlots({ 
+    className: cn(
+        "flex items-center justify-center",
+        // Prevent shrinking
+        "shrink-0",
+    ),
+}, props)} />;
+
+const HeaderActions = (props: SlotProps) => <Slot {...mergeSlots({ 
+    className: cn(
+        "flex items-center gap-2",
+        // Justify end
+        "justify-end",
+    ),
+}, props)} />;
+
+// ============================================================================
+// Types
+// ============================================================================
 
 export interface LayoutProps {
     root?: SlotProps
@@ -59,6 +227,7 @@ export interface LayoutProps {
     footer?: SlotProps<'footer'>
 
     headerWrapper?: SlotProps<'header'>
+    headerContainer?: SlotProps
     headerToolbar?: SlotProps
     headerLogo?: SlotProps
     headerActions?: SlotProps
@@ -69,9 +238,11 @@ export interface LayoutProps {
     sidebarToolbar?: SlotProps
     sidebarNavigation?: SlotProps
     sidebarFooter?: SlotProps
-
 }
 
+// ============================================================================
+// Layout Component
+// ============================================================================
 
 export const Layout = ({
     root,
@@ -80,6 +251,7 @@ export const Layout = ({
     main,
     footer,
     headerWrapper,
+    headerContainer,
     headerToolbar,
     headerActions,
     headerLogo,
@@ -94,23 +266,23 @@ export const Layout = ({
     return <Root {...root}>
 
         <SidebarWrapper {...sidebarWrapper}>
-            <SidebarLogo {...mergeSlots({}, sidebarLogo)} />
-            <SidebarHeader {...mergeSlots({}, sidebarHeader)} />
-            <SidebarToolbar {...mergeSlots({}, sidebarToolbar)} />
-            <SidebarNavigation {...mergeSlots({}, sidebarNavigation)} />
-            <SidebarFooter {...mergeSlots({}, sidebarFooter)} />
+            <SidebarLogo {...sidebarLogo} />
+            <SidebarHeader {...sidebarHeader} />
+            <SidebarToolbar {...sidebarToolbar} />
+            <SidebarNavigation {...sidebarNavigation} />
+            <SidebarFooter {...sidebarFooter} />
         </SidebarWrapper>
 
-        <Overlay {...mergeSlots({}, overlay)} />
+        <Overlay {...overlay} />
 
         <Content {...content}>
 
             <HeaderWrapper {...headerWrapper}>
-                <Container className='grid grid-cols-3 items-center h-(--cool-header-height)'>
+                <HeaderContainer {...headerContainer}>
                     <HeaderToolbar {...headerToolbar} />
                     <HeaderLogo {...headerLogo} />
                     <HeaderActions {...headerActions} />
-                </Container>
+                </HeaderContainer>
             </HeaderWrapper>
 
             <Main {...main} />
@@ -120,5 +292,3 @@ export const Layout = ({
         </Content>
     </Root>
 }
-
-

@@ -1,0 +1,56 @@
+
+@theme {
+
+    --cool-header-height: 4rem;
+    --cool-sidebar-height: calc(100svh - var(--cool-header-height));
+
+    /* Responsive sidebar widths */
+    --cool-sidebar-width-mobile: 100vw;
+    --cool-sidebar-width-tablet: 280px;
+    --cool-sidebar-width-laptop: 280px;
+
+    /* ====================================================================== */
+    /* Header Theme */
+    /* ====================================================================== */
+
+    --cool-header-bg: hsl(0 0% 100%);
+    --cool-header-color: hsl(222 47% 11%);
+    --cool-header-hover: hsl(210 40% 96%);
+    --cool-header-active: hsl(210 40% 92%);
+
+    /* ====================================================================== */
+    /* Sidebar Theme */
+    /* ====================================================================== */
+
+    --cool-sidebar-bg: hsl(0 0% 100%);
+    --cool-sidebar-color: hsl(222 47% 11%);
+    --cool-sidebar-border: hsl(214 32% 91%);
+    --cool-sidebar-hover: hsl(210 40% 96%);
+    --cool-sidebar-active: hsl(210 40% 92%);
+    --cool-sidebar-muted: hsl(215 16% 47%);
+
+    /* ====================================================================== */
+    /* Footer Theme */
+    /* ====================================================================== */
+
+    --cool-footer-bg: hsl(0 0% 98%);
+    --cool-footer-color: hsl(215 16% 47%);
+
+    /* ====================================================================== */
+    /* Focus & Interactive States */
+    /* ====================================================================== */
+
+    --cool-focus-ring: hsl(221 83% 53%);
+    --cool-focus-ring-offset: 2px;
+
+    /* ====================================================================== */
+    /* Transitions & Animations */
+    /* ====================================================================== */
+
+    --cool-transition-fast: 150ms;
+    --cool-transition-base: 200ms;
+    --cool-transition-slow: 300ms;
+
+    --cool-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --cool-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}

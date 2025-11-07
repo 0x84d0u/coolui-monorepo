@@ -2,6 +2,8 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { AppLayout as ServerAppLayout } from "../index.server"
 import { ClientAppLayoutProps, State } from "../lib/types"
 import { ChildrenComponent } from "@coolui/core";
+import { useTheme } from "@/client";
+import { ToggleTheme } from "@/Template/components-client/ToggleTheme";
 
 const AppLayoutContext = createContext<Required<State> | undefined>(undefined);
 
@@ -69,10 +71,14 @@ const Provider = ({ children }: ChildrenComponent) => {
 
 
 const ClientAppLayout = (props: ClientAppLayoutProps) => {
-    const state = {}
+    const state = useAppLayout();
     return <ServerAppLayout 
         {...state}
         {...props}
+        headerToolbar={<>
+            <ToggleTheme />
+            {props.headerToolbar}
+        </>}
     />
 }
 

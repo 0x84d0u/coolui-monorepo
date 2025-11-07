@@ -23,7 +23,7 @@ export const Overlay = ({
             "fixed inset-0 z-20 bg-overlay backdrop-blur-sm transition-opacity",
             "laptop:hidden",
             // On mobile/tablet: show/hide based on isOpen
-            isOpen ? "opacity-100" : "opacity-0 pointer-events-none",
+            isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
             className
         )}
         onClick={onClick}
