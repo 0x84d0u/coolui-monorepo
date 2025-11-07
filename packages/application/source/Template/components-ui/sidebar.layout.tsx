@@ -46,8 +46,8 @@ export const Wrapper = ({
             "laptop:sticky laptop:top-0",
             // Slide animation
             "transition-transform duration-300 ease-in-out",
-            isOpen ? 'translate-x-0' : '-translate-x-full laptop:translate-x-0',
             "laptop:shrink-0",
+            isOpen ? 'translate-x-0' : '-translate-x-full laptop:translate-x-0',
         )}
     >
         {children}

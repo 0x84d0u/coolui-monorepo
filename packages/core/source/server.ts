@@ -11,3 +11,12 @@ export {
     Slot as Text,
     type Props as TextProps
 } from './components/typography.slot'
+
+
+export { 
+    Slot,
+    type SlotProps,
+    mergeSlots,
+    type Children,
+    type ChildrenComponent
+} from './Slot/index'
