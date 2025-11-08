@@ -1,24 +1,45 @@
-import { LAYOUT_CONFIG } from "@/config";
-import { MainNavigation } from "./MainNavigation";
+import { THEME_CONFIG } from "@/components/config";
+import { Application, ThemeScript } from "@coolui/application";
 import { ChildrenComponent } from "@coolui/core";
-import { AppLayout, Template } from "@coolui/application";
-import { AppLayout as ClientAppLayout } from "@coolui/application/client";
 
-export const RootLayout = ({ children }: ChildrenComponent) => <Template
-    config={LAYOUT_CONFIG}
-    sidebarBody={<MainNavigation />}
->
-    {children}
-</Template>
+export const RootScript = () => <ThemeScript config={THEME_CONFIG} />
 
+const navItems = [
+    { label: "Homepage" },
+    {
+        label: "Link with children", items: [
+            { label: "First child " },
+            { label: "Second child " },
+            { label: "Third child " },
 
-// const c = APPLAYOUT_TEMPLATe
+        ]
+    }
+]
 
-export const RootLayout2 = ({ children}: ChildrenComponent) => <AppLayout >
-    {children}
-</AppLayout>
+const content = <div> Content </div>
 
+export const RootLayout = ({ children }: ChildrenComponent) => <Application
+    themeConfig={THEME_CONFIG}
+    templateProps={{
+        headerEnabled: true,
+        headerFixed: true,
+        headerActionsContent: content,
+        headerToolbarContent: content,
+        
+        sidebarEnabled: true,
+        sidebarPosition: 'left',
+        sidebarHeaderContent: content,
+        sidebarBodyContent: content,
+        sidebarFooterContent: content,
 
-export const RootLayout3 = ({ children}: ChildrenComponent) => <ClientAppLayout>
-    {children}
-</ClientAppLayout>
+        logoEnabled: true,
+        logoPosition: 'both',
+        logoWordmark: "VertiGo",
+        
+        navEnabled: true,
+        navItems: navItems,
+
+    
+        children: children
+    }}
+/>

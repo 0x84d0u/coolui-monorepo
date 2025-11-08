@@ -40,6 +40,7 @@
     // Paths (if needed)
     "baseUrl": ".",
     "paths": {
+      "@types": ["./source/types/index"],
       "@/*": ["./source/*"]
     }
   },

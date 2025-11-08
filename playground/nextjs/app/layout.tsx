@@ -3,10 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { ThemeProvider } from "@coolui/application/client";
-import { NextThemeScript } from "@coolui/application";
-import { THEME_CONFIG } from "../config";
-import { RootLayout, RootLayout2, RootLayout3 } from "@/components/RootLayout";
+import { RootLayout, RootScript } from "@/components/RootLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,17 +29,12 @@ export default function NextRootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <NextThemeScript config={THEME_CONFIG} />
+        <RootScript />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} `}
-      >
-
-        <ThemeProvider config={THEME_CONFIG}>
-          <RootLayout3>
-            {children}
-          </RootLayout3>
-        </ThemeProvider>
+      <body className={`${geistSans.variable} ${geistMono.variable} `}>
+        <RootLayout>
+          {children}
+        </RootLayout>
       </body>
     </html>
   );
