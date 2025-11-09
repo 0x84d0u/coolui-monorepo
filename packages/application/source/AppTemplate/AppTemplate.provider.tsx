@@ -1,3 +1,5 @@
+"use client";
+
 import { ChildrenComponent } from "@coolui/core";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { State } from "./types";

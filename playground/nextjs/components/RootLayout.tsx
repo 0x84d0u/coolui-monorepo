@@ -1,5 +1,6 @@
 import { THEME_CONFIG } from "@/components/config";
-import { Application, ThemeScript } from "@coolui/application";
+import { ThemeScript } from "@coolui/application";
+import { Application } from "@coolui/application/client";
 import { ChildrenComponent } from "@coolui/core";
 
 export const RootScript = () => <ThemeScript config={THEME_CONFIG} />
@@ -23,23 +24,23 @@ export const RootLayout = ({ children }: ChildrenComponent) => <Application
     templateProps={{
         headerEnabled: true,
         headerFixed: true,
-        headerActionsContent: content,
-        headerToolbarContent: content,
-        
+        // headerActionsContent: content,
+        // headerToolbarContent: content,
+
         sidebarEnabled: true,
         sidebarPosition: 'left',
-        sidebarHeaderContent: content,
-        sidebarBodyContent: content,
-        sidebarFooterContent: content,
+        // sidebarHeaderContent: content,
+        // sidebarBodyContent: content,
+        // sidebarFooterContent: content,
 
         logoEnabled: true,
         logoPosition: 'both',
         logoWordmark: "VertiGo",
-        
+
         navEnabled: true,
         navItems: navItems,
 
-    
+
         children: children
     }}
 />

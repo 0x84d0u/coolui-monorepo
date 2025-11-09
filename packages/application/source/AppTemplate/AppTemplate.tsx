@@ -21,7 +21,9 @@ export const AppLayout = (props: AppLayoutProps) => {
         <AppSidebar {...props} />
         <AppOverlay {...props} />
         <Wrapper>
-            <AppHeader {...props} />
+            <AppHeader {...props}
+                headerBordered={props.headerIsScrolled || props.sidebarIsOpen}
+            />
             <Main>
                 {props.children}
             </Main>

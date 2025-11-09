@@ -1,4 +1,4 @@
-import { Children, Container } from "@coolui/core"
+import { ChildrenComponent, Container } from "@coolui/core"
 import { cn } from "@coolui/styles"
 
 import { AppLogo } from "@/AppTemplate/AppLogo/AppLogo"
@@ -16,21 +16,21 @@ export const AppHeader = ({
     ...logoConfig
 }: AppHeaderProps) => {
 
+
     if (!headerEnabled) return null;
-    return <Wrapper className={cn(
-        headerBordered ? "border-border shadow-sm" : "border-transparent",
-        headerFixed && "sticky top-0 z-30",
-        headerFixed && "backdrop-blur-md bg-(--cool-header-bg)/95",
-    )}>
+    return <Wrapper
+        isBordered={headerBordered}
+        isFixed={headerFixed}
+    >
         <Container className={cn(
-            "h-(--cool-header-height) min-h-(--cool-header-height)",
+            "h-(--header-height) min-h-(--header-height)",
             "grid grid-cols-[1fr_auto_1fr] items-center gap-4",
         )}>
             <div className="flex items-center gap-3 justify-start">
                 {headerToolbarContent}
             </div>
             <div className="flex items-center justify-center shrink-0">
-                <AppLogo {...logoConfig} className="hidden laptop:block" />
+                <AppLogo {...logoConfig} />
             </div>
             <div className="flex items-center gap-2 justify-end">
                 {headerActionsContent}
@@ -49,21 +49,20 @@ export const AppHeader = ({
 //     {...props}
 // />
 
-const Wrapper = (props: {
-    children?: Children
+const Wrapper = (props: ChildrenComponent & {
     className?: string
+    isBordered?: boolean
+    isFixed?: boolean
+    isScrolled?: boolean
 }) => <header
-    className={cn(
-        // Theme colors
-        "bg-(--cool-header-bg) text-(--cool-header-color)",
-        // Border with smooth transition
-        "border-b transition-colors duration-200",
-        // Prevent shrinking
-        "shrink-0",
-        // Print modifications
-        "print:static print:border-b-2",
-        props.className
-    )}
->
-        {props.children}
-    </header>
+        className={cn(
+            "transition-all duration-250",
+            "bg-layout-bg text-layout-typo",
+            "shrink-0",
+            // Print modifications
+            "border-b",
+            props.isBordered ? "border-layout-border shadow-sm" : "border-transparent",
+            props.isFixed && "sticky top-0 z-40 backdrop-blur-md backdrop-saturate-180 bg-layout-bg/95",
+        )}
+        children={props.children}
+    />

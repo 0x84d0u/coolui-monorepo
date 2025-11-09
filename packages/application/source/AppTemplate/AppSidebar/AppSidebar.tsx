@@ -13,12 +13,12 @@ export const AppSidebar = ({
     sidebarBodyContent,
     sidebarFooterContent,
     sidebarHeaderContent,
-    
+
     sidebarIsOpen,
     closeSidebar,
     openSidebar,
     toggleSidebar,
-    
+
     ...props
 }: SidebarConfig & LogoConfig & NavigationConfig) => {
     if (!sidebarEnabled) return null;
@@ -26,10 +26,10 @@ export const AppSidebar = ({
     const logoConfig: LogoConfig = props;
     const navigationConfig: NavigationConfig = props;
 
-    return <Wrapper className={cn(
-        sidebarPosition === 'right' ? 'order-2' : 'order-0',
-        sidebarIsOpen ? 'translate-x-0' : sidebarPosition === 'right' ? 'translate-x-full laptop:translate-x-0' : '-translate-x-full laptop:translate-x-0',
-    )}>
+    return <Wrapper
+        isOpen={sidebarIsOpen}
+        position={sidebarPosition}
+    >
         <Header visible={logoConfig.logoEnabled || sidebarHeaderContent ? true : false}>
             <AppLogo {...logoConfig} className="hidden laptop:block" />
             {sidebarHeaderContent}
@@ -47,46 +47,53 @@ export const AppSidebar = ({
 
 // Layout 
 
-const Body = (props: ChildrenComponent) => <div>{props.children}</div>
-const Header = (props: ChildrenComponent & { visible: boolean }) => props.visible && <div className="shrink-0 px-6 py-4 border-b border-border">{props.children}</div>
-const Footer = (props: ChildrenComponent & { visible: boolean }) => props.visible && <div className="shrink-0 px-6 py-4 border-t border-border">{props.children}</div>
 
-const Wrapper = (props: ChildrenComponent & { className?: string }) => {
+const Body = (props: ChildrenComponent) => <div className={cn(
+    "flex-1 overflow-y-auto overflow-x-hidden",
+    // "sidebar-scroll",
+    "p-4 space-y-2",
+)}>{props.children}</div>
+
+const Header = (props: ChildrenComponent & { visible: boolean }) => props.visible && <div className={cn(
+    "shrink-0",
+    "px-6 py-4",
+    "border-b border-layout-border",
+)}>{props.children}</div>
+
+const Footer = (props: ChildrenComponent & { visible: boolean }) => props.visible && <div className={cn(
+    "shrink-0",
+    "px-6 py-4",
+    "border-t border-layout-border",
+    "bg-layout-bg",
+)}>{props.children}</div>
+
+const Wrapper = (props: ChildrenComponent & {
+    className?: string
+    isOpen?: boolean
+    position?: 'left' | 'right'
+}) => {
     return <aside className={cn(
-        // Theme colors
-        "bg-(--cool-sidebar-bg) text-(--cool-sidebar-color)",
-        // Border
-        "border-r border-border",
-        // Layout
+        "transition-transform duration-350 ease-out",
+
+        "bg-layout-bg text-layout-typo",
+        "border-r border-layout-border",
         "flex flex-col",
-
-        // Height management
-        // Mobile/Tablet: Full viewport height minus header
-        "h-[calc(100svh-var(--cool-header-height))] min-h-[calc(100svh-var(--cool-header-height))]",
-        // Laptop+: Full screen height
+        "h-[calc(100svh-var(--header-height))] min-h-[calc(100svh-var(--header-height))]",
         "laptop:h-svh laptop:min-h-svh",
-
-        // Width
-        "w-[280px] mobile:w-[320px] tablet:w-[280px]",
-
-        // Positioning
-        // Mobile/Tablet: Fixed overlay
-        "fixed inset-y-0 left-0 top-(--cool-header-height) z-30",
-        // Laptop+: Static in flow, with sticky positioning
+        "w-(--sidebar-width)",
+        "fixed inset-y-0 left-0 top-(--header-height) z-30",
         "laptop:sticky laptop:top-0 laptop:shrink-0",
-
-        // Slide animation
-        "transition-transform duration-300 ease-out",
-        // Shadow on mobile when open
         "shadow-2xl laptop:shadow-none",
-        // Print hide
-        "print:hidden",
-        // Focus management
+        props.position === 'right' ? 'order-2' : 'order-0',
+
+        props.isOpen
+            ? 'translate-x-0'
+            : props.position === 'right'
+                ? 'translate-x-full laptop:translate-x-0'
+                : '-translate-x-full laptop:translate-x-0',
+
+        // "no-print",
         "focus-visible:outline-none",
-        // Scrollable content
-        "overflow-y-auto overflow-x-hidden",
-        // Smooth scroll
-        "scroll-smooth",
     )}>
         {props.children}
     </aside>

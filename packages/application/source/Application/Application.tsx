@@ -1,3 +1,5 @@
+"use client";
+
 import { ThemeProvider } from "@/Theme/ThemeProvider"
 import { type Config as ThemeConfig } from "@/Theme/types"
 import { AppTemplateProvider } from "@/AppTemplate/AppTemplate.provider"

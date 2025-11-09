@@ -6,7 +6,6 @@ export type { Config as ThemeConfig, Theme } from './Theme/types'
 // AppTemplate
 
 // Application
-export { Application, type ApplicationProps } from './Application/Application'
 
 // Page
 export { Page, type PageProps } from './Page/Page'

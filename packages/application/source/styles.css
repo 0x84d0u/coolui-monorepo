@@ -1,11 +1,150 @@
 @import '../../styles/source/index.css';
 
-@theme {
-    --cool-header-bg: var(--color-body);
-    --cool-header-color: var(--color-typo-heading);
-    --cool-header-height: 4.5rem;
 
-    --cool-sidebar-bg: var(--color-body);
-    --cool-sidebar-color: var(--color-typo-heading);
-    --cool-sidebar-height: calc(100svh - var(--cool-header-height));
+@theme {
+--header-height: 4rem;
+  --sidebar-width: 280px;
+  --sidebar-width-collapsed: 0px;
+
+  --color-layout-bg: var(--color-body);
+  --color-layout-bgHover: var(--color-body);
+  --color-layout-bgActive: oklch(from var(--color-accent) l c h / 0.1);
+
+  --color-layout-typo: var(--color-typo-heading);
+  --color-layout-typoMuted: var(--color-typo-muted);
+  --color-layout-typoActive: var(--color-accent);
+
+  --color-layout-border: var(--color-border);
+
+
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+}
+
+
+/* ====================================================================== */
+/* Animation Keyframes */
+/* ====================================================================== */
+
+/* @keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+} */
+
+/* ====================================================================== */
+/* Utility Classes */
+/* ====================================================================== */
+/* 
+.animate-slide-in-left {
+  animation: slide-in-left var(--transition-base) var(--ease-out);
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right var(--transition-base) var(--ease-out);
+}
+
+.animate-fade-in {
+  animation: fade-in var(--transition-base) var(--ease-out);
+}
+
+.animate-scale-in {
+  animation: scale-in var(--transition-base) var(--ease-out);
+} */
+
+/* ====================================================================== */
+/* Component-Specific Styles */
+/* ====================================================================== */
+
+/* Header backdrop blur support */
+/* @supports (backdrop-filter: blur(12px)) {
+  .header-blur {
+    backdrop-filter: blur(12px) saturate(180%);
+  }
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .header-blur {
+    background-color: var(--header-bg);
+  }
+} */
+
+/* Sidebar scrollbar styling */
+/* .sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--color-typo-muted);
+} */
+
+/* TOC active indicator */
+/* .toc-item {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.toc-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background: var(--toc-item-active);
+  border-radius: 2px;
+  transition: height var(--transition-base) var(--ease-out);
+}
+
+.toc-item.active::before {
+  height: 1.5rem;
+} */

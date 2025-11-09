@@ -23,7 +23,7 @@ export const AppLogo = ({
         {!logoSrc && !logoWordmark && (
             <div className={cn(
                 "h-8 w-8 rounded-lg",
-                "gradient-to-br from-primary to-blue-600",
+                "bg-linear-to-br from-accent to-violet-600",
                 "flex items-center justify-center",
                 "text-typo-heading font-bold text-sm",
             )}>

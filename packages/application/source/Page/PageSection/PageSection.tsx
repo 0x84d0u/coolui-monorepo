@@ -14,8 +14,8 @@ export const PageSection = ({
     alignFooter = 'start',
 
     id,
-    className,
-    
+    // className,
+
     title,
     description,
     headerContent,
@@ -25,21 +25,9 @@ export const PageSection = ({
     return (
         <Root
             id={id}
-            className={cn(
-                colorTheme === 'primary' && 'bg-body text-typo-body',
-                colorTheme === 'secondary' && 'bg-surface text-typo-body',
-                colorTheme === 'teritary' && 'bg-surface-2 text-typo-body',
-
-                spacing === "compact" && "py-6 laptop:py-12 space-y-6",
-                spacing === "comfortable" && "py-12 laptop:py-20 space-y-8",
-                spacing === "large" && "py-20 laptop:py-32 space-y-12",
-                spacing === "huge" && "py-32 laptop:py-48 space-y-16",
-
-                borders === "top" && "border-t border-border",
-                borders === "bottom" && "border-b border-border",
-                borders === "both" && "border-y border-border",
-                className,
-            )}
+            colorTheme={colorTheme}
+            borders={borders}
+            spacing={spacing}
         >
             <Container size={containerSize}>
                 <Header visible={!!(title || description || headerContent)}>
@@ -49,31 +37,16 @@ export const PageSection = ({
                     </HeaderHeading>
                     <HeaderExtra visible={!!headerContent}>{headerContent}</HeaderExtra>
                 </Header>
-                <Body className={cn(
-                    layout === "stacked" && "flex flex-col",
-                    layout === "grid" && "grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3",
-                    layout === "split" && "grid grid-cols-1 tablet:grid-cols-2 items-center",
-                    layout === "center" && "max-w-3xl mx-auto text-center flex flex-col",
-
-                    spacing === 'compact' && 'gap-6',
-                    spacing === 'comfortable' && 'gap-12',
-                    spacing === 'large' && 'gap-24',
-                    spacing === 'huge' && 'gap-48',
-                )}>
+                <Body
+                    spacing={spacing}
+                    layout={layout}
+                >
                     {children}
                 </Body>
-                <Footer className={cn(
-                    "flex items-center",
-                    alignFooter === "start" && "justify-start",
-                    alignFooter === "center" && "justify-center",
-                    alignFooter === "end" && "justify-end",
-                    alignFooter === "between" && "justify-between",
-
-                    spacing === "compact" && "mt-4",
-                    spacing === "comfortable" && "mt-8",
-                    spacing === "large" && "mt-12",
-                    spacing === "huge" && "mt-16",
-                )}>
+                <Footer
+                    spacing={spacing}
+                    alignFooter={alignFooter}
+                >
                     {footerContent}
                 </Footer>
             </Container>
@@ -84,17 +57,54 @@ export const PageSection = ({
 PageSection.displayName = "PageSection"
 
 
-const Root = (props: ChildrenComponent & { id?: string, className?: string }) => <section className={props.className} id={props.id}>
-    {props.children}
-</section>
+const Root = (props: ChildrenComponent & {
+    id?: string,
+    colorTheme?: SectionConfig['colorTheme']
+    spacing?: SectionConfig['spacing']
+    borders?: SectionConfig['borders']
 
-const Header = (props: ChildrenComponent & { visible?: boolean }) => props.visible && <div className="flex justify-between items-start"> {props.children} </div>
-const HeaderHeading = (props: ChildrenComponent & { visible?: boolean }) => props.visible && <div className="flex-1"> {props.children} </div>
-const HeaderExtra = (props: ChildrenComponent & { visible?: boolean }) => props.visible && <div className=""> {props.children} </div>
+}) => <section
+    id={props.id}
+    aria-labelledby={props.id ? `${props.id}-heading` : undefined}
+    className={cn(
+        props.colorTheme === 'primary' && 'bg-body text-typo-body',
+        props.colorTheme === 'secondary' && 'bg-surface text-typo-body',
+        props.colorTheme === 'teritary' && 'bg-surface-2 text-typo-body',
+        props.spacing === "compact" && "py-8 laptop:py-12",
+        props.spacing === "comfortable" && "py-12 laptop:py-20",
+        props.spacing === "large" && "py-20 laptop:py-32",
+        props.spacing === "huge" && "py-32 laptop:py-48",
+        props.borders === "top" && "border-t border-border",
+        props.borders === "bottom" && "border-b border-border",
+        props.borders === "both" && "border-y border-border",
+
+        // Transition
+        "transition-colors duration-250",
+    )} >
+        {props.children}
+    </section>
+
+const Header = (props: ChildrenComponent & { visible?: boolean }) => props.visible && <div className={cn(
+    "flex flex-col tablet:flex-row tablet:justify-between tablet:items-start gap-6",
+    "mb-8 laptop:mb-12",
+)}>
+    {props.children}
+</div>
+const HeaderHeading = (props: ChildrenComponent & { visible?: boolean }) => props.visible && <div className="flex-1 space-y-2">
+    {props.children}
+</div>
+
+const HeaderExtra = (props: ChildrenComponent & { visible?: boolean }) => props.visible && <div className="shrink-0">
+    {props.children}
+</div>
 
 
 const Title = (props: { children?: string, size?: SectionConfig['headingSize'] }) => {
     if (!props.children) return null
+
+    // TODO: Append id
+    // const id = props.children.toLowerCase().replace(/\s+/g, '-')
+
     switch (props.size) {
         case "display":
             return <Typography.Display>{props.children as string}</Typography.Display>
@@ -110,17 +120,45 @@ const Title = (props: { children?: string, size?: SectionConfig['headingSize'] }
 
 const Description = (props: { children?: string, size?: SectionConfig['headingSize'] }) => {
     if (!props.children) return null
-    return <Typography.Body>{props.children}</Typography.Body>
+    return <Typography.Body className="text-typo-muted max-w-3xl">
+        {props.children}
+    </Typography.Body>
 }
 
 
 
-const Body = (props: ChildrenComponent & { className?: string }) => {
+const Body = (props: ChildrenComponent & {
+    layout?: SectionConfig['layout']
+    spacing?: SectionConfig['spacing']
+}) => {
     if (!props.children) return null
-    return <div className={props.className}>{props.children}</div>
+    return <div className={cn(
+        props.layout === "stacked" && "flex flex-col",
+        props.layout === "grid" && "grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3",
+        props.layout === "split" && "grid grid-cols-1 tablet:grid-cols-2 items-center",
+        props.layout === "center" && "max-w-3xl mx-auto text-center flex flex-col",
+
+        props.spacing === 'compact' && 'gap-6',
+        props.spacing === 'comfortable' && 'gap-8',
+        props.spacing === 'large' && 'gap-12',
+        props.spacing === 'huge' && 'gap-16',
+    )}>{props.children}</div>
 }
 
-const Footer = (props: ChildrenComponent & { className?: string }) => {
+const Footer = (props: ChildrenComponent & {
+    alignFooter?: SectionConfig['alignFooter']
+    spacing?: SectionConfig['spacing']
+}) => {
     if (!props.children) return null
-    return <div className={props.className}>{props.children}</div>
+    return <div className={cn(
+        "flex items-center flex-wrap gap-4",
+        props.alignFooter === "start" && "justify-start",
+        props.alignFooter === "center" && "justify-center",
+        props.alignFooter === "end" && "justify-end",
+        props.alignFooter === "between" && "justify-between",
+        props.spacing === "compact" && "mt-6",
+        props.spacing === "comfortable" && "mt-8",
+        props.spacing === "large" && "mt-12",
+        props.spacing === "huge" && "mt-16",
+    )}>{props.children}</div>
 }
